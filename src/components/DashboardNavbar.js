@@ -41,7 +41,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
             <InputIcon />
           </IconButton>
         </Hidden>
-        <Hidden lgUp>
+        <Hidden xlUp>
           <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
             <MenuIcon />
           </IconButton>
