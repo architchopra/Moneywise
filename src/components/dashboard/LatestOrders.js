@@ -21,69 +21,69 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 const orders = [
   {
     id: uuid(),
-    ref: 'CDD1049',
+    ref: '+500',
     amount: 30.5,
     customer: {
-      name: 'Ekaterina Tankova'
+      name: 'zerodah'
     },
     createdAt: 1555016400000,
-    status: 'pending'
+    status: 'credit'
   },
   {
     id: uuid(),
-    ref: 'CDD1048',
+    ref: '-1000',
     amount: 25.1,
     customer: {
-      name: 'Cao Yu'
+      name: 'hdfc'
     },
     createdAt: 1555016400000,
-    status: 'delivered'
+    status: 'debit'
   },
   {
     id: uuid(),
-    ref: 'CDD1047',
+    ref: '+410',
     amount: 10.99,
     customer: {
-      name: 'Alexa Richardson'
+      name: 'icici'
     },
     createdAt: 1554930000000,
-    status: 'refunded'
+    status: 'credit'
   },
   {
     id: uuid(),
-    ref: 'CDD1046',
+    ref: '+5000',
     amount: 96.43,
     customer: {
-      name: 'Anje Keizer'
+      name: 'cams'
     },
     createdAt: 1554757200000,
-    status: 'pending'
+    status: 'credit'
   },
   {
     id: uuid(),
-    ref: 'CDD1045',
+    ref: '-10000',
     amount: 32.54,
     customer: {
-      name: 'Clarke Gillebert'
+      name: 'bitcoin'
     },
     createdAt: 1554670800000,
-    status: 'delivered'
+    status: 'debit'
   },
   {
     id: uuid(),
-    ref: 'CDD1044',
+    ref: '-185',
     amount: 16.76,
     customer: {
-      name: 'Adam Denisov'
+      name: 'sbi'
     },
     createdAt: 1554670800000,
-    status: 'delivered'
+    status: 'debit'
   }
 ];
 
 const LatestOrders = (props) => (
   <Card {...props}>
-    <CardHeader title="Latest Orders" />
+    <CardHeader title="Recent Transactions" />
     <Divider />
     <PerfectScrollbar>
       <Box sx={{ minWidth: 800 }}>
@@ -91,10 +91,10 @@ const LatestOrders = (props) => (
           <TableHead>
             <TableRow>
               <TableCell>
-                Order Ref
+                Amount
               </TableCell>
               <TableCell>
-                Customer
+                for
               </TableCell>
               <TableCell sortDirection="desc">
                 <Tooltip
