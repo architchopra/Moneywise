@@ -19,11 +19,11 @@ const TrafficByExpense = (props) => {
   const data = {
     datasets: [
       {
-        data: [82.7, 10.4, 0.41,6.61],
+        data: [60.7, 10.3, 24.7,4.3],
         backgroundColor: [
           colors.indigo[500],
-          colors.red[6],
-          colors.orange[80],
+          colors.red[600],
+          colors.orange[800],
           colors.yellow[100]
         ],
         borderWidth: 8,
@@ -31,7 +31,7 @@ const TrafficByExpense = (props) => {
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Shopping', 'househol', 'Loan']
+    labels: ['Shopping', 'household', 'Loan']
   };
 
   const options = {
@@ -84,7 +84,7 @@ const TrafficByExpense = (props) => {
   ];
 
   return (
-    <Card {...props}>
+    <Card {...props} >
       <CardHeader title="Expense Ratio" />
       <Divider />
       <CardContent>
@@ -116,7 +116,9 @@ const TrafficByExpense = (props) => {
               key={title}
               sx={{
                 p: 1,
-                textAlign: 'center'
+                textAlign: 'center',
+                height: 20,
+                width: 60,
               }}
             >
               <Icon color="action" />
@@ -128,7 +130,7 @@ const TrafficByExpense = (props) => {
               </Typography>
               <Typography
                 style={{ color }}
-                variant="h2"
+                variant="h4"
               >
                 {value}
                 %

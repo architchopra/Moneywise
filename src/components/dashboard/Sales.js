@@ -93,7 +93,7 @@ const Sales = (props) => {
   };
 
   return (
-    <Card {...props}>
+    <Card {...props} >
       <CardHeader
         action={(
           <Button
