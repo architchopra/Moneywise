@@ -1,0 +1,22 @@
+.formheading {
+    font-size: 2rem !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+    margin-left: 30%;
+}
+.btnsend {
+    background-color: #333333 !important;
+    font-size: 1rem !important;
+    color: white !important;
+    font-weight: 700 !important;
+    margin-top: 1rem !important;
+    margin-left: 40% !important;
+    margin-bottom: 1rem !important;
+  }
+  .btnsend:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #000000 !important;
+  }
