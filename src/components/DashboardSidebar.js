@@ -36,9 +36,9 @@ const items = [
     title: 'Dashboard'
   },
   {
-    href: '/app/customers',
+    href: '/app/editdetails',
     icon: UsersIcon,
-    title: 'Customers'
+    title: 'Edit Details'
   },
   {
     href: '/app/products',
@@ -176,7 +176,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
 
   return (
     <>
-      <Hidden lgUp>
+      <Hidden xlUp>
         <Drawer
           anchor="left"
           onClose={onMobileClose}
