@@ -1,41 +1,8 @@
-## [Material Kit - React](https://material-kit-react.devias.io/) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=%F0%9F%9A%A8Devias%20Freebie%20Alert%20-%20An%20awesome%20ready-to-use%20register%20page%20made%20with%20%23material%20%23react%0D%0Ahttps%3A%2F%2Fdevias.io%20%23createreactapp%20%23devias%20%23material%20%23freebie%20%40devias-io)
-
-![license](https://img.shields.io/badge/license-MIT-blue.svg)
-
-[![Material Kit - React](https://s3.eu-west-2.amazonaws.com/devias/products/react-material-dashboard/react-material-free-xl.jpg)](https://react-material-dashboard.devias.io/)
-
-> Free React Admin Dashboard made with [Material UI's](https://material-ui.com/?ref=devias-io) components, [React](https://reactjs.org/?ref=devias-io) and of course [create-react-app](https://facebook.github.io/create-react-app/?ref=devias-io) to boost your app development process! We'll launch a pro version soon, so if you are interested subscribe to our personal emailing list on [https://devias.io/](https://devias.io/)
-
-## Upgrade to PRO Version
-
-We also have a pro version of this product which bundles even more pages and components if you want to save more time and design efforts :)
-
-
-| Free Version (this one)              | [Material Kit Pro - React](https://material-ui.com/store/items/devias-kit-pro/) |
-| ------------------------ | :----------------------------------------------------------- |
-| **7** Demo Pages         | **32** demo pages
-| -                        | ✔ Dark & light mode
-| -                        | ✔ Authentication with *Amplify**, **Auth0** and **Firebase**  
-| -                        | ✔ TypeScript version                                                                                   
-| -                        | ✔ Design files (sketch & figma) - for extended license       
-| -                        | ✔ Complete users flows                                       
-
-## Demo
-
-- [Dashboard Page](https://material-kit-react.devias.io/app/dashboard)
-- [Users Page](https://material-kit-react.devias.io/app/customers)
-- [Products Page](https://material-kit-react.devias.io/app/products)
-- [Register Page](https://material-kit-react.devias.io/register)
-- [Login Page](https://material-kit-react.devias.io/login)
-- [Account Page](https://material-kit-react.devias.io/app/account)
-- [Settings Page](https://material-kit-react.devias.io/app/settings)
-
-
 ## Quick start
 
-- [Download from Github](https://github.com/devias-io/material-kit-react/archive/master.zip) or [Download from Devias](https://devias.io/products/material-kit-react) or clone the repo: `git clone https://github.com/devias-io/material-kit-react.git`
+- [Download from Github](https://github.com/architchopra/Moneywise.git.zip) or or clone the repo: `git clone https://github.com/architchopra/Moneywise.git`
 
-- Make sure your NodeJS and npm versions are up to date for `React 17`
+- Make sure your NodeJS and npm versions are up to date
 
 - Install dependencies: `npm install` or `yarn`
 
@@ -67,42 +34,39 @@ material-react-dashboard
 ├── public
 ├── docs
 └── src
-	├── assets
-	├── common
+	├── mocks
 	├── components
-	├── helpers
 	├── icons
-	├── layouts
+	|── images
+	├── utils
 	├── theme
-	├── views
+	├── pages
 	│	├── Account
 	│	├── Dashboard
-	│	├── Icons
+	│	├── EditForm
 	│	├── NotFound
 	│	├── ProductList
 	│	├── Settings
-	│	├── SignIn
-	│	├── SignUp
-	│	├── Typography
-	│	└── UserList
-	├── App.jsx
-	├── index.jsx
-	└── Routes.jsx
-```
+	│	├── Login
+	│	├── Register
+	│	
+	├── App.js
+	├── Api.js
+	├── index.js
+	└── Routes.js
+	#About Project
+	
+In this project we have made a a web app which will help the user to manage all theirpersonal expenses like expenses on food ,rent, subscriptions of various things like Netflix prime video etc , shopping and other things.
+User’s income from various stuff will be calculated and thus the net income will also help themin  making a calculator for credit score also if possible. We can add a feature of cash flow minimizer also and of every month we will be message the customer with net savings of month and through that the user can analyse all his savings and expenses and thus make a decision about investments and other things.
 
-## Resources
-
-- More freebies like this one: <https://devias.io>
-
-## Reporting Issues:
-
-- [Github Issues Page](https://github.com/devias-io/react-material-dashboard/issues?ref=devias-io)
-
-## License
-
-- Licensed under MIT (https://github.com/devias-io/react-material-dashboard/blob/master/LICENSE.md)
 
 ## Contact Us
+Group Members:
+•	Shivansh Gupta    :  shivanshgupta340@gmail.com
+•	Archit Chopra       :  architchopratech@gmail.com
+•	DeepanshuGoel  :  deepanshugoel2016@gmail.com
 
-- Email Us: support@deviasio.zendesk.com
-- [Follow us on Instagram](https://www.instagram.com/deviasio/)
+
+- Email Us:moneywisehelp@gmail.com 
+
+
