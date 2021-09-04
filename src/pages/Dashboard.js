@@ -66,7 +66,7 @@ const Dashboard = () => (
             item
             lg={7}
             md={12}
-            xl={9}
+            xl={8}
             xs={12}
           >
             <Sales />
@@ -75,7 +75,7 @@ const Dashboard = () => (
             item
             lg={5}
             md={6}
-            xl={3}
+            xl={4}
             xs={12}
           >
             <TrafficByExpense sx={{ height: '100%' }} />
