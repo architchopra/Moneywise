@@ -7,12 +7,14 @@ import {
   Box,
   Hidden,
   IconButton,
-  Toolbar
+  Toolbar,
+  Typography
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
 import Logo from './Logo';
+import "../index.css"
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
@@ -23,9 +25,20 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
       {...rest}
     >
       <Toolbar>
+        
         <RouterLink to="/">
+         
           <Logo />
+        
+         
         </RouterLink>
+        <RouterLink to="/">
+        <div className="col">
+          <Typography variant="h4" style={{marginLeft: "20%"}}>Moneywise</Typography>
+          </div>
+          </RouterLink>
+        
+        
         <Box sx={{ flexGrow: 1 }} />
         <Hidden xlDown>
           <IconButton color="inherit" size="large">

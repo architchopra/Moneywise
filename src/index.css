@@ -20,3 +20,13 @@
       0 17px 50px 0 rgba(0, 0, 0, 0.19);
     background-color: #000000 !important;
   }
+ 
+  .col{
+   float: right;
+   margin-top: 1%;
+   font-weight: 700;
+   color: white;
+  };
+  .money{
+    margin-left: 15% !important;
+  }

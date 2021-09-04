@@ -40,6 +40,10 @@ const useStyles = makeStyles(() => ({
     marginLeft: "2%",
     marginBottom: "1rem",
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: "95%",
+  },
 }));
 const theme = createTheme({
   typography: {
@@ -116,7 +120,7 @@ const Form = () => {
           id="demo-simple-select"
           value={expense}
           onChange={onExpenseChange}
-          autoWidth
+          
         >
           <MenuItem value="household">Household Expense</MenuItem>
           <MenuItem value="shopping">Shopping Expense</MenuItem>
