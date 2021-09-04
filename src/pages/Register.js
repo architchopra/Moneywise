@@ -29,7 +29,7 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Register | Material Kit</title>
+        <title>Register | MoneyWise</title>
       </Helmet>
       <Box
         sx={{

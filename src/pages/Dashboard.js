@@ -12,7 +12,7 @@ import TrafficByExpense from '../components/dashboard/TrafficByExpense';
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Dashboard | MoneyWise</title>
     </Helmet>
     <Box
       sx={{
