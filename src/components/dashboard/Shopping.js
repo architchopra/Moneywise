@@ -22,7 +22,7 @@ const Shopping = (props) => (
           <Typography
             color="textSecondary"
             gutterBottom
-            classname="textsize"
+            
           >
             Shopping Expense
           </Typography>
