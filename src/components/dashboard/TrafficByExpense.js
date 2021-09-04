@@ -31,7 +31,7 @@ const TrafficByExpense = (props) => {
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Shopping', 'household', 'Loan']
+    labels: ['Shopping', 'household', 'Loan','Miscellaneous']
   };
 
   const options = {
@@ -59,25 +59,25 @@ const TrafficByExpense = (props) => {
   const devices = [
     {
       title: 'Shopping ',
-      value: 6.61,
+      value: 60.7,
       icon: LaptopMacIcon,
       color: colors.indigo[500]
     },
     {
       title: 'Household',
-      value: 0.41,
+      value: 10.3,
       icon: TabletIcon,
       color: colors.red[600]
     },
     {
       title: 'Loan',
-      value: 82.6,
+      value: 24.7,
       icon: PhoneIcon,
       color: colors.orange[600]
     },
     {
       title: 'Miscellanious',
-      value:10.3,
+      value:4.3,
       icon: TabletIcon,
       color: colors.red[600]
     }
@@ -117,14 +117,13 @@ const TrafficByExpense = (props) => {
               sx={{
                 p: 1,
                 textAlign: 'center',
-                height: 20,
-                width: 60,
+               
               }}
             >
               <Icon color="action" />
               <Typography
                 color="textPrimary"
-                variant="body1"
+                variant="subtitle1"
               >
                 {title}
               </Typography>

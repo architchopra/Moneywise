@@ -18,31 +18,31 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 const products = [
   {
     id: uuid(),
-    name: 'Dropbox',
+    name: 'Zerodah',
     imageUrl: '/static/images/products/product_1.png',
     updatedAt: moment().subtract(2, 'hours')
   },
   {
     id: uuid(),
-    name: 'Medium Corporation',
+    name: 'bitcoin',
     imageUrl: '/static/images/products/product_2.png',
     updatedAt: moment().subtract(2, 'hours')
   },
   {
     id: uuid(),
-    name: 'Slack',
+    name: 'hdfc',
     imageUrl: '/static/images/products/product_3.png',
     updatedAt: moment().subtract(3, 'hours')
   },
   {
     id: uuid(),
-    name: 'Lyft',
+    name: 'icici',
     imageUrl: '/static/images/products/product_4.png',
     updatedAt: moment().subtract(5, 'hours')
   },
   {
     id: uuid(),
-    name: 'GitHub',
+    name: 'sbi bank',
     imageUrl: '/static/images/products/product_5.png',
     updatedAt: moment().subtract(9, 'hours')
   }
