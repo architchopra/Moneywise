@@ -1,16 +1,15 @@
 import {
   Avatar,
-  Box,
   Card,
   CardContent,
   Grid,
   Typography
 } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+import { indigo } from '@material-ui/core/colors';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import { Box } from '@material-ui/system';
 
-const TotalCustomers = (props) => (
+const Misc = (props) => (
   <Card {...props}>
     <CardContent>
       <Grid
@@ -24,53 +23,55 @@ const TotalCustomers = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL CUSTOMERS
+           Miscellaneous
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            1,600
+           2500
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: green[600],
+              backgroundColor: indigo[600],
               height: 56,
               width: 56
             }}
           >
-            <PeopleIcon />
+            <AttachMoneyIcon />
           </Avatar>
+      
         </Grid>
+    
       </Grid>
       <Box
         sx={{
-          alignItems: 'center',
+          pt: 2,
           display: 'flex',
-          pt: 2
+          alignItems: 'center'
         }}
       >
-        <ArrowUpwardIcon sx={{ color: green[900] }} />
+        {/* <ArrowDownwardIcon sx={{ color: red[900] }} />
         <Typography
-          variant="body2"
           sx={{
-            color: green[900],
+            color: red[900],
             mr: 1
           }}
+          variant="body2"
         >
-          16%
-        </Typography>
+          12%
+        </Typography> */}
         <Typography
           color="textSecondary"
           variant="caption"
         >
-          Since last month
+         Beware of little expenses. A small leak will sink a great ship.
         </Typography>
       </Box>
     </CardContent>
   </Card>
 );
 
-export default TotalCustomers;
+export default Misc;

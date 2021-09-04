@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
-import Budget from '../components/dashboard/Budget';
+import Household from '../components/dashboard/Household';
 import LatestOrders from '../components/dashboard/LatestOrders';
 import LatestProducts from '../components/dashboard/LatestProducts';
 import Sales from '../components/dashboard/Sales';
-import TasksProgress from '../components/dashboard/TasksProgress';
-import TotalCustomers from '../components/dashboard/TotalCustomers';
-import TotalProfit from '../components/dashboard/TotalProfit';
-import TrafficByDevice from '../components/dashboard/TrafficByDevice';
+import Loan  from '../components/dashboard/loan';
+import Shopping from '../components/dashboard/Shopping';
+import Misc from '../components/dashboard/Misc';
+import TrafficByExpense from '../components/dashboard/TrafficByExpense';
 
 const Dashboard = () => (
   <>
@@ -33,7 +33,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <Budget />
+            <Household />
           </Grid>
           <Grid
             item
@@ -42,7 +42,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TotalCustomers />
+            <Shopping />
           </Grid>
           <Grid
             item
@@ -51,7 +51,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TasksProgress />
+            <Loan/>
           </Grid>
           <Grid
             item
@@ -60,7 +60,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TotalProfit sx={{ height: '100%' }} />
+            <Misc sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
@@ -78,7 +78,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TrafficByDevice sx={{ height: '100%' }} />
+            <TrafficByExpense sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item

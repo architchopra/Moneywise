@@ -4,13 +4,13 @@ import {
   Card,
   CardContent,
   Grid,
+  LinearProgress,
   Typography
 } from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import MoneyIcon from '@material-ui/icons/Money';
-import { red } from '@material-ui/core/colors';
+import { orange } from '@material-ui/core/colors';
+import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
-const Budget = (props) => (
+const Loan = (props) => (
   <Card
     sx={{ height: '100%' }}
     {...props}
@@ -27,24 +27,24 @@ const Budget = (props) => (
             gutterBottom
             variant="h6"
           >
-            BUDGET
+            Investment and Loan
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            $24,000
+           20000
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: red[600],
-              height: 56,
-              width: 56
+              backgroundColor: orange[600],
+              height: 50,
+              width: 50
             }}
           >
-            <MoneyIcon />
+            <InsertChartIcon />
           </Avatar>
         </Grid>
       </Grid>
@@ -55,7 +55,7 @@ const Budget = (props) => (
           alignItems: 'center'
         }}
       >
-        <ArrowDownwardIcon sx={{ color: red[900] }} />
+        {/* <ArrowDownwardIcon sx={{ color: red[900] }} />
         <Typography
           sx={{
             color: red[900],
@@ -64,16 +64,22 @@ const Budget = (props) => (
           variant="body2"
         >
           12%
-        </Typography>
+        </Typography> */}
         <Typography
           color="textSecondary"
           variant="caption"
         >
-          Since last month
+          Its not about how much money you make, Its how to save it!
         </Typography>
       </Box>
+      {/* <Box sx={{ pt: 3 }}>
+        <LinearProgress
+          value={75.5}
+          variant="determinate"
+        />
+      </Box> */}
     </CardContent>
   </Card>
 );
 
-export default Budget;
+export default Loan;

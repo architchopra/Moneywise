@@ -13,24 +13,25 @@ import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import PhoneIcon from '@material-ui/icons/Phone';
 import TabletIcon from '@material-ui/icons/Tablet';
 
-const TrafficByDevice = (props) => {
+const TrafficByExpense = (props) => {
   const theme = useTheme();
 
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [82.7, 10.4, 0.41,6.61],
         backgroundColor: [
           colors.indigo[500],
-          colors.red[600],
-          colors.orange[600]
+          colors.red[6],
+          colors.orange[80],
+          colors.yellow[100]
         ],
         borderWidth: 8,
         borderColor: colors.common.white,
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['Shopping', 'househol', 'Loan']
   };
 
   const options = {
@@ -57,28 +58,34 @@ const TrafficByDevice = (props) => {
 
   const devices = [
     {
-      title: 'Desktop',
-      value: 63,
+      title: 'Shopping ',
+      value: 6.61,
       icon: LaptopMacIcon,
       color: colors.indigo[500]
     },
     {
-      title: 'Tablet',
-      value: 15,
+      title: 'Household',
+      value: 0.41,
       icon: TabletIcon,
       color: colors.red[600]
     },
     {
-      title: 'Mobile',
-      value: 23,
+      title: 'Loan',
+      value: 82.6,
       icon: PhoneIcon,
       color: colors.orange[600]
+    },
+    {
+      title: 'Miscellanious',
+      value:10.3,
+      icon: TabletIcon,
+      color: colors.red[600]
     }
   ];
 
   return (
     <Card {...props}>
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Expense Ratio" />
       <Divider />
       <CardContent>
         <Box
@@ -134,4 +141,4 @@ const TrafficByDevice = (props) => {
   );
 };
 
-export default TrafficByDevice;
+export default TrafficByExpense;
