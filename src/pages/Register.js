@@ -12,9 +12,19 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
+import api from '../api';
 
 const Register = () => {
   const navigate = useNavigate();
+  const submit=async(values)=>{
+    try {
+      const {data}= await api.post('api/auth/register',{firstname:values.firstName,lastname:values.lastName,email:values.email,password:values.password});
+      localStorage.setItem("user",JSON.stringify(data));
+      return true;
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <>
@@ -48,7 +58,8 @@ const Register = () => {
               policy: Yup.boolean().oneOf([true], 'This field must be checked')
             })
           }
-            onSubmit={() => {
+            onSubmit={async (values) => {
+              await submit(values);
               navigate('/app/dashboard', { replace: true });
             }}
           >

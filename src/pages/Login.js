@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import FacebookIcon from '../icons/Facebook';
 import GoogleIcon from '../icons/Google';
+import api from '../api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -41,7 +42,9 @@ const Login = () => {
               email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
               password: Yup.string().max(255).required('Password is required')
             })}
-            onSubmit={() => {
+            onSubmit={async(values) => {
+              const{data}=await api.post('api/auth/login',{email:values.email,password:values.password});
+              localStorage.setItem('user',JSON.stringify(data));
               navigate('/app/dashboard', { replace: true });
             }}
           >
