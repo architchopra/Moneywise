@@ -82,8 +82,11 @@ const Form = () => {
         'token': JSON.parse(localStorage.getItem("user")).token,
       }
     }
-    const data = await api.post('/api/private/expenses/add',{type,cost},config).catch((error)=>{console.log(error)});
+    console.log(JSON.parse(localStorage.getItem("user")).token);
+    const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     console.log(data);
+    // const data = await api.post('/api/private/expenses/add',{type,cost},config).catch((error)=>{console.log(error)});
+    // console.log(data);
     // formData.append("type", expense);
     // formData.append('cost', cost);
 

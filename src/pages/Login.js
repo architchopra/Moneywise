@@ -12,12 +12,25 @@ import {
   Typography
 } from '@material-ui/core';
 import FacebookIcon from '../icons/Facebook';
-import GoogleIcon from '../icons/Google';
+import GoogleLogin from 'react-google-login';
 import api from '../api';
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const responseGoogle = async (res) => {
+    try {
+      const config ={
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }
+      console.log(res);
+      const {data} = await api.post('api/auth/gauth',{code:res.code},config).catch((error)=>{console.log(error);})
+      localStorage.setItem('user',JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       <Helmet>
@@ -98,15 +111,16 @@ const Login = () => {
                     xs={12}
                     md={6}
                   >
-                    <Button
-                      fullWidth
-                      startIcon={<GoogleIcon />}
-                      onClick={handleSubmit}
-                      size="large"
-                      variant="contained"
-                    >
-                      Login with Google
-                    </Button>
+                    <GoogleLogin
+                      clientId="95276787280-3r4te807gle7ekb3dlmabpai3vohu4kj.apps.googleusercontent.com"
+                      buttonText="Login"
+                      onSuccess={responseGoogle}
+                      onFailure={responseGoogle}
+                      accessType="offline"
+                      responseType="code"
+                      scope="https://www.googleapis.com/auth/gmail.readonly"
+                      cookiePolicy={'single_host_origin'}
+                    />
                   </Grid>
                 </Grid>
                 <Box
