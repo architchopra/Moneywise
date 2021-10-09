@@ -112,7 +112,7 @@ const Login = () => {
                     md={6}
                   >
                     <GoogleLogin
-                      clientId="95276787280-3r4te807gle7ekb3dlmabpai3vohu4kj.apps.googleusercontent.com"
+                      clientId={process.env.CLIENT_ID}
                       buttonText="Login"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}

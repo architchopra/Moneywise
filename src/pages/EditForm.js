@@ -8,7 +8,6 @@ import { createTheme } from "@material-ui/core/styles";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { useState } from "react";
 import "../index.css"
-import axios from "axios";
 import InputLabel from '@material-ui/core/InputLabel';
 import api from "../api"
 import Select from '@material-ui/core/Select';
