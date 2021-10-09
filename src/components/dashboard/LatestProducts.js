@@ -19,13 +19,13 @@ const products = [
   {
     id: uuid(),
     name: 'Zerodah',
-    imageUrl: '/static/images/products/product_1.png',
+    imageUrl: '/static/images/products/product_3.png',
     updatedAt: moment().subtract(2, 'hours')
   },
   {
     id: uuid(),
     name: 'bitcoin',
-    imageUrl: '/static/images/products/product_2.png',
+    imageUrl: '/static/images/products/product_3.png',
     updatedAt: moment().subtract(2, 'hours')
   },
   {
@@ -37,13 +37,13 @@ const products = [
   {
     id: uuid(),
     name: 'icici',
-    imageUrl: '/static/images/products/product_4.png',
+    imageUrl: '/static/images/products/product_3.png',
     updatedAt: moment().subtract(5, 'hours')
   },
   {
     id: uuid(),
     name: 'sbi bank',
-    imageUrl: '/static/images/products/product_5.png',
+    imageUrl: '/static/images/products/product_3.png',
     updatedAt: moment().subtract(9, 'hours')
   }
 ];
