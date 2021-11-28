@@ -6,13 +6,14 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+import ShoppingBagIcon from '@material-ui/icons/ShoppingBag';
 
 const Shopping = (props) => (
-  <Card {...props}>
-    <CardContent>
+  <Card sx={{ bgcolor: ' #ffcccb', color: '#000000' }} {...props}>
+    <CardContent >
       <Grid
         container
         spacing={3}
@@ -20,7 +21,7 @@ const Shopping = (props) => (
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+          
             gutterBottom
             
           >
@@ -36,12 +37,12 @@ const Shopping = (props) => (
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: green[600],
+              backgroundColor: red[600],
               height: 56,
               width: 56
             }}
           >
-            <PeopleIcon />
+            <ShoppingBagIcon />
           </Avatar>
         </Grid>
       </Grid>
@@ -63,7 +64,7 @@ const Shopping = (props) => (
           16%
         </Typography> */}
         <Typography
-          color="textSecondary"
+          
           variant="subtitle2"
         >
           Dont go broke trying to look rich             <br></br>

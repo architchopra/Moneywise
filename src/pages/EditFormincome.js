@@ -64,16 +64,14 @@ const Form = () => {
   // create state variables for each input
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
+  // const [textValue, setTextValue] = useState('');
   const [dates, setDates] = useState('');
-  // const dat = {
-  //   date: { dates }
-  // };
   // const [,feedbackValue, setTextValue] = useState("");
 
   const onExpenseChange = (e) => setExpense(e.target.value);
   const onCostChange = (e) => setCost(e.target.value);
   const onDateChange = (e) => setDates(e.target.value);
-  // const handleReset = () => setTextValue("");
+  // const handleReset = () => setTextValue('');
 
   async function fetchData() {
     const type = expense;
@@ -121,30 +119,21 @@ const Form = () => {
               <div className={classes.form}>
                 <h3 className="formheading">Contact us | Moneywise</h3>
                 <FormControl className={classes.formControl}>
-                  <InputLabel
-                    id="demo-simple-select-label"
-                    InputLabelProps={{
-                      shrink: true
-                    }}
-                  >
-                    TYPE OF EXPENSE
+                  <InputLabel id="demo-simple-select-label">
+                    TYPE OF Incomes
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={expense}
                     onChange={onExpenseChange}
-                    variant="outlined"
-                    InputLabelProps={{
-                      shrink: true
-                    }}
                   >
-                    <MenuItem value="household">Household Expense</MenuItem>
-                    <MenuItem value="shopping">Shopping Expense</MenuItem>
+                    <MenuItem value="household">Salary Income(Fixed Income)</MenuItem>
+                    <MenuItem value="shopping">Income from buisness</MenuItem>
                     <MenuItem value="investment">
-                      Investment and Loan Expense
+                      Income from investments
                     </MenuItem>
-                    <MenuItem value="misc">Miscellenious Expense</MenuItem>
+                    <MenuItem value="misc">Miscellenious Income</MenuItem>
                   </Select>
                 </FormControl>
 

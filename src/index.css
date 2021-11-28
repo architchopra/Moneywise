@@ -30,3 +30,18 @@
   .money{
     margin-left: 15% !important;
   }
+  .centered{
+    margin-left: auto!important;
+    margin-right: auto  !important;
+    padding-left: auto !important;
+    padding-right: auto !important;
+  }
+  .formheading2 {
+    font-size: 2rem !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+    margin-left: 30%;
+    color: white;
+}

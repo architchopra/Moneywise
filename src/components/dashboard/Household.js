@@ -7,12 +7,14 @@ import {
   Typography
 } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import MoneyIcon from '@material-ui/icons/Money';
+import  HouseIcon from '@material-ui/icons/House';
 import { red } from '@material-ui/core/colors';
 
 const Household = (props) => (
   <Card
-    sx={{ height: '100%' }}
+    sx={{ height: '100%',
+    bgcolor: ' #ffcccb', color: '#000000'  
+   }}
     {...props}
   >
     <CardContent>
@@ -23,14 +25,14 @@ const Household = (props) => (
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+            
             gutterBottom
             variant="h6"
           >
             Household Expense
           </Typography>
           <Typography
-            color="textPrimary"
+            
             variant="h3"
           >
             100
@@ -44,7 +46,7 @@ const Household = (props) => (
               width: 56
             }}
           >
-            <MoneyIcon />
+            <HouseIcon />
           </Avatar>
         </Grid>
       </Grid>
@@ -66,8 +68,8 @@ const Household = (props) => (
           12%
         </Typography> */}
         <Typography
-          color="textSecondary"
-          variant="caption"
+         
+          variant="subtitle2"
         >
           Moneywise Be Wise
         </Typography>

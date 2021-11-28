@@ -38,7 +38,12 @@ const items = [
   {
     href: '/app/editdetails',
     icon: UsersIcon,
-    title: 'Edit Details'
+    title: 'Edit Details-expense'
+  },
+  {
+    href: '/app/editdetails-income',
+    icon: UsersIcon,
+    title: 'Edit Details-Income'
   },
   {
     href: '/app/products',

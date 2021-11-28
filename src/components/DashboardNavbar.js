@@ -5,6 +5,7 @@ import {
   AppBar,
   Badge,
   Box,
+  Container,
   Hidden,
   IconButton,
   Toolbar,
@@ -20,6 +21,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
 
   return (
+    <Container class="centered">
     <AppBar
       elevation={0}
       {...rest}
@@ -61,6 +63,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
         </Hidden>
       </Toolbar>
     </AppBar>
+    </Container>
   );
 };
 

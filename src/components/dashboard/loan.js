@@ -7,12 +7,13 @@ import {
   LinearProgress,
   Typography
 } from '@material-ui/core';
-import { orange } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
 const Loan = (props) => (
   <Card
     sx={{ height: '100%' }}
+    sx={{ bgcolor: ' #ffcccb', color: '#000000' }} 
     {...props}
   >
     <CardContent>
@@ -23,7 +24,7 @@ const Loan = (props) => (
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+            
             gutterBottom
             variant="h6"
           >
@@ -39,7 +40,7 @@ const Loan = (props) => (
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: orange[600],
+              backgroundColor: red[600],
               height: 50,
               width: 50
             }}
@@ -66,8 +67,8 @@ const Loan = (props) => (
           12%
         </Typography> */}
         <Typography
-          color="textSecondary"
-          variant="caption"
+          
+          variant="subtitle2"
         >
           Its not about how much money you make, Its how to save it!
         </Typography>
