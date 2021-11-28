@@ -85,7 +85,7 @@ const Form = () => {
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
     const data = await api
-      .post('/api/private/expenses/add', { type, cost }, config)
+      .post('/api/private/earnings/add', { type, cost,date:dates }, config)
       .catch((error) => {
         console.log(error);
       });

@@ -12,7 +12,7 @@ import MiscIncome from 'src/components/dashboard/MiscIncome';
 import TrafficByExpense from '../components/dashboard/TrafficByExpense';
 import Investmentincome from 'src/components/dashboard/Investmentincome';
 import api from "../api";
-import { useEffect } from 'react';
+import { useEffect , useState } from 'react';
 import Buisnessincome from 'src/components/dashboard/Buisnessincome';
 import SalariedIncome from 'src/components/dashboard/SalariedIncome';
 // import { CssBaseline } from '@mui/material';
@@ -29,18 +29,22 @@ const useStyles = makeStyles(() => ({
  
 }));
 const Dashboard = () => {
-  async function fetchData() {
-    
+  const [expense, setExpense] = useState([]);
+  async function FetchData() {
     const config ={
       headers:{
         'Content-Type': 'application/json',
         'token': JSON.parse(localStorage.getItem("user")).token,
       }
     }
+    const {data} = await api.post('/api/private/expenses',{}, config).catch((error) => {
+      console.log(error);
+    });
+    setExpense(data.expenses);
+    console.log(expense);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
-    const data = await api.get('/api/private/expenses/add').catch((error)=>{console.log(error)});
     // console.log(data.type);
     // formData.append("type", expense);
     // formData.append('cost', cost);
@@ -59,8 +63,8 @@ const Dashboard = () => {
   const classes = useStyles();
   useEffect(() => {
     // Update the document title using the browser API
-   fetchData();
-  });
+   FetchData();
+  },[]);
   return (
    <>
     <Helmet>
