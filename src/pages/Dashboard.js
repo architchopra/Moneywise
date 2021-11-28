@@ -15,6 +15,7 @@ import api from "../api";
 import { useEffect , useState } from 'react';
 import Buisnessincome from 'src/components/dashboard/Buisnessincome';
 import SalariedIncome from 'src/components/dashboard/SalariedIncome';
+import { Navigate } from 'react-router';
 // import { CssBaseline } from '@mui/material';
 const useStyles = makeStyles(() => ({
  boxed: {
@@ -63,6 +64,10 @@ const Dashboard = () => {
   const classes = useStyles();
   useEffect(() => {
     // Update the document title using the browser API
+    if(localStorage.getItem("user")===null){
+      console.log("logout")
+      return ( <Navigate to='login'></Navigate>)
+    }
    FetchData();
   },[]);
   return (
@@ -84,7 +89,10 @@ const Dashboard = () => {
         <Grid
           container
           spacing={3}
-         
+          sx={{
+            paddingLeft:"0.6rem",
+            paddingRight:"0.6rem"
+          }} 
         >
           
           <Grid
@@ -133,7 +141,10 @@ const Dashboard = () => {
           <Grid
           container
           spacing={3}
-          
+          sx={{
+            paddingLeft:"0.6rem",
+            paddingRight:"0.6rem"
+          }} 
         >
           <Grid
             item

@@ -27,18 +27,11 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
       {...rest}
     >
       <Toolbar>
-        
-        <RouterLink to="/">
-         
-          <Logo />
-        
-         
-        </RouterLink>
-        <RouterLink to="/">
-        <div className="col">
-          <Typography variant="h4" style={{marginLeft: "20%"}}>Moneywise</Typography>
-          </div>
-          </RouterLink>
+      <Hidden xlUp>
+          <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
         
         
         <Box sx={{ flexGrow: 1 }} />
@@ -56,11 +49,22 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
             <InputIcon />
           </IconButton>
         </Hidden>
-        <Hidden xlUp>
-          <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
-            <MenuIcon />
-          </IconButton>
-        </Hidden>
+      
+        
+        <div className="nav">
+          <RouterLink to="/">
+           
+            <Logo />
+          
+           
+          </RouterLink>
+          <RouterLink to="/">
+          <div className="col">
+            <Typography variant="h1" style={{marginRight: "20%",marginTop: "5%"}}>Moneywise</Typography>
+            </div>
+            </RouterLink>
+            </div>
+            
       </Toolbar>
     </AppBar>
     </Container>
