@@ -42,7 +42,7 @@ const Dashboard = () => {
       console.log(error);
     });
     setExpense(data.expenses);
-    console.log(expense);
+    console.log(data.expenses);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
