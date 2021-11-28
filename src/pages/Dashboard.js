@@ -16,6 +16,7 @@ import { useEffect , useState } from 'react';
 import Buisnessincome from 'src/components/dashboard/Buisnessincome';
 import SalariedIncome from 'src/components/dashboard/SalariedIncome';
 import { Navigate } from 'react-router';
+import { useNavigate } from 'react-router';
 // import { CssBaseline } from '@mui/material';
 const useStyles = makeStyles(() => ({
  boxed: {
@@ -30,6 +31,8 @@ const useStyles = makeStyles(() => ({
  
 }));
 const Dashboard = () => {
+  
+  let navigate = useNavigate();
   const [expense, setExpense] = useState([]);
   async function FetchData() {
     const config ={
@@ -42,7 +45,7 @@ const Dashboard = () => {
       console.log(error);
     });
     setExpense(data.expenses);
-    console.log(data.expenses);
+    console.log(expense);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
@@ -63,12 +66,16 @@ const Dashboard = () => {
   }
   const classes = useStyles();
   useEffect(() => {
-    // Update the document title using the browser API
+    
     if(localStorage.getItem("user")===null){
-      console.log("logout")
-      return ( <Navigate to='login'></Navigate>)
+      console.log("logout");
+      navigate('/login')
     }
+   
+    // Update the document title using the browser API
+  else{
    FetchData();
+  }
   },[]);
   return (
    <>

@@ -19,7 +19,10 @@ import "../index.css"
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
-
+  if(localStorage.getItem("user")!=null){
+   const name=JSON.parse(localStorage.getItem("user")).firstname;
+  
+  
   return (
     <Container class="centered">
     <AppBar
@@ -64,11 +67,71 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
             </div>
             </RouterLink>
             </div>
-            
+            <div>
+          
+             <h3>Hi {name}</h3>
+           
+            </div>
       </Toolbar>
     </AppBar>
     </Container>
   );
+  }
+  else{
+    return (
+      <Container class="centered">
+      <AppBar
+        elevation={0}
+        {...rest}
+      >
+        <Toolbar>
+        <Hidden xlUp>
+            <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
+              <MenuIcon />
+            </IconButton>
+          </Hidden>
+          
+          
+          <Box sx={{ flexGrow: 1 }} />
+          <Hidden xlDown>
+            <IconButton color="inherit" size="large">
+              <Badge
+                badgeContent={notifications.length}
+                color="primary"
+                variant="dot"
+              >
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton color="inherit" size="large">
+              <InputIcon />
+            </IconButton>
+          </Hidden>
+        
+          
+          <div className="nav">
+            <RouterLink to="/">
+             
+              <Logo />
+            
+             
+            </RouterLink>
+            <RouterLink to="/">
+            <div className="col">
+              <Typography variant="h1" style={{marginRight: "20%",marginTop: "5%"}}>Moneywise</Typography>
+              </div>
+              </RouterLink>
+              </div>
+              <div>
+            
+               <h3>Hi </h3>
+             
+              </div>
+        </Toolbar>
+      </AppBar>
+      </Container>
+    );
+  }
 };
 
 DashboardNavbar.propTypes = {

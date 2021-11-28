@@ -30,6 +30,10 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
+    if(localStorage.getItem("user")!=null){
+      
+      navigate('/')
+    }
   }
   return (
     <>
