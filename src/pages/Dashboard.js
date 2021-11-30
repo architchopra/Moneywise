@@ -124,6 +124,32 @@ const Dashboard = () => {
     //       setShopping(sum2);
     //        }
 
+    var dt= new Date();
+    dt.setHours(0, 0, 0, 0);
+    dt.setDate(1);
+    console.log(dt);
+    var expense=[],expensedate=[];
+    let i=0;
+      while(i<data.expenses.length){
+        var curdt=new Date(data.expenses[i].date);
+        let sum=0;
+        console.log(dt,i);
+        while(curdt>=dt&&i<data.expenses.length){   
+          curdt=new Date(data.expenses[i].date);if(curdt<dt){
+            break;
+          } 
+          sum+=data.expenses[i].cost;
+          console.log(curdt,dt,i);
+          i++;
+        }
+        expense.push(sum);
+        expensedate.push(dt.toLocaleString('default', { month: 'short',year :'2-digit' }));
+        console.log(sum,dt.getMonth());
+        dt.setMonth(dt.getMonth()-1);
+        dt.setDate(1);
+      }
+    console.log(expensedate);
+    console.log(expense);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
