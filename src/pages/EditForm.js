@@ -100,8 +100,10 @@ const Form = () => {
       });
       setOpen(true);
     console.log(data);
-    setmsg(data.data.data);
-    console.log(dates);
+    if(data){
+      setmsg(data.data.data);
+      console.log(dates);
+    }
     // formData.append("type", expense);S
     // formData.append('cost', cost);
 

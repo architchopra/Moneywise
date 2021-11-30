@@ -97,9 +97,10 @@ const Form = () => {
         return;
       });
       setOpen(true);
-    console.log(data);
-    setmsg(data.data.data);
-    console.log(dates);
+      if(data){
+        setmsg(data.data.data);
+        console.log(dates);
+      }
     // formData.append("type", expense);
     // formData.append('cost', cost);
 
