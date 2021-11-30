@@ -10,13 +10,16 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import  HouseIcon from '@material-ui/icons/House';
 import { red } from '@material-ui/core/colors';
 
-const Household = (props) => (
-  <Card
+const Household = (props) => {
+  console.log(props)
+  return (
+    <Card
     sx={{ height: '100%',
     bgcolor: ' #ffcccb', color: '#000000'  
    }}
     {...props}
   >
+    
     <CardContent>
       <Grid
         container
@@ -35,7 +38,7 @@ const Household = (props) => (
             
             variant="h3"
           >
-            100
+           {props.value}
           </Typography>
         </Grid>
         <Grid item>
@@ -76,6 +79,8 @@ const Household = (props) => (
       </Box>
     </CardContent>
   </Card>
-);
+  );
+}
+  
 
 export default Household;

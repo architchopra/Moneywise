@@ -9,7 +9,9 @@ import { red } from '@material-ui/core/colors';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import { Box } from '@material-ui/system';
 
-const Misc = (props) => (
+const Misc = (props) => {
+
+  return(
   <Card sx={{ bgcolor: '#ffcccb', color: '#000000' }}  {...props}>
     <CardContent sx={{ bgcolor: ' #ffcccb', color: '#000000' }}  >
       <Grid
@@ -29,7 +31,7 @@ const Misc = (props) => (
             color="textPrimary"
             variant="h3"
           >
-           2500
+           {props.value}
           </Typography>
         </Grid>
         <Grid item>
@@ -73,5 +75,5 @@ const Misc = (props) => (
     </CardContent>
   </Card>
 );
-
+      }
 export default Misc;

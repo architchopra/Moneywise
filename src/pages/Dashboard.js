@@ -1,51 +1,129 @@
 import { Helmet } from 'react-helmet';
-import { Box, Container, Grid,  CssBaseline } from '@material-ui/core';
-import { makeStyles} from '@material-ui/styles';
+import { Box, Container, Grid, CssBaseline } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import Household from '../components/dashboard/Household';
 import LatestOrders from '../components/dashboard/LatestOrders';
 import LatestProducts from '../components/dashboard/LatestProducts';
 import Sales from '../components/dashboard/Sales';
-import Loan  from '../components/dashboard/loan';
+import Loan from '../components/dashboard/loan';
 import Shopping from '../components/dashboard/Shopping';
 import Misc from '../components/dashboard/Misc';
 import MiscIncome from 'src/components/dashboard/MiscIncome';
 import TrafficByExpense from '../components/dashboard/TrafficByExpense';
 import Investmentincome from 'src/components/dashboard/Investmentincome';
-import api from "../api";
-import { useEffect , useState } from 'react';
+import api from '../api';
+import { useEffect, useState } from 'react';
 import Buisnessincome from 'src/components/dashboard/Buisnessincome';
 import SalariedIncome from 'src/components/dashboard/SalariedIncome';
 import { Navigate } from 'react-router';
 import { useNavigate } from 'react-router';
+import { Abc } from '@mui/icons-material';
 // import { CssBaseline } from '@mui/material';
 const useStyles = makeStyles(() => ({
- boxed: {
-    backgroundColor: "#808080",
+  boxed: {
+    backgroundColor: '#808080'
   },
   heading: {
     fontSize: '2rem',
     justifyContent: 'left',
     alignItems: 'left'
-  },
- 
- 
+  }
 }));
 const Dashboard = () => {
-  
+  // let sum=0,sum2=0,sum3=0;
+  const [houses, setHouses] = useState([]);
+  const [shopping, setShopping] = useState([]);
+  const [inv, setInv] = useState([]);
+  const [misc, setMisc] = useState([]);
   let navigate = useNavigate();
   const [expense, setExpense] = useState([]);
+  // const [object, setObject] = useState({
+  //   admin:{
+  //   household: '',
+  //   shopping: '',
+  //   misc: '',
+  //   investment: ''
+  //   }
+  // });
+  const object = {
+    household: '',
+    shopping: '',
+    misc: '',
+    investment: ''
+  };
   async function FetchData() {
-    const config ={
-      headers:{
+    const config = {
+      headers: {
         'Content-Type': 'application/json',
-        'token': JSON.parse(localStorage.getItem("user")).token,
+        token: JSON.parse(localStorage.getItem('user')).token
       }
-    }
-    const {data} = await api.post('/api/private/expenses',{}, config).catch((error) => {
-      console.log(error);
-    });
+    };
+    const { data } = await api
+      .post('/api/private/expenses', {}, config)
+      .catch((error) => {
+        console.log(error);
+      });
     setExpense(data.expenses);
     console.log(data.expenses);
+
+    
+
+    //   for(var i=0;i<data.expenses.length;i++){
+    //    if(data.expenses[i].type=="household"){
+    //      houses=houses+data.expenses[i].cost;
+    //  }
+    //  };
+    const a = [];
+
+    var typeNames = new Set();
+    data.expenses.filter((x) => {
+      typeNames.add(x.type);
+    });
+    typeNames.forEach((element) => {
+      data.expenses.forEach((x) => {
+        if (x.type == element) {
+          a.push(x.cost);
+        }
+      });
+      const sum = a.reduce(function (y, b) {
+        return y + b;
+      });
+      console.log(a, sum);
+      object[element] = sum;
+      a.length = 0;
+      console.log(object);
+      // setObject({
+      //   ...object, admin: { ...object.admin, [element]: sum }
+
+      // })
+
+    //   setObject(prevState => ({
+    //     ...prevState,
+    //     [element]: sum
+    // }));
+      
+    });
+    
+    setHouses(object.household);
+    setShopping(object.shopping);
+    setInv(object.investment);
+    setMisc(object.misc);
+    
+    // let sum=0;
+    //    if(x.type=="household"){
+    //   sum=sum+x.cost;
+    //   setHouses(sum);
+    //    }
+// let jn=3;
+    //    else if(x.type=="shopping"){
+    //     sum2=sum2+x.cost;
+    //     setShopping(sum2);
+    //      }
+    //      else if(x.type=="shopping"){
+    //       sum2=sum2+x.cost;
+    //       setShopping(sum2);
+    //        }
+
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
@@ -53,194 +131,122 @@ const Dashboard = () => {
     // formData.append("type", expense);
     // formData.append('cost', cost);
 
-   // const state = { EMAIL:emailValue,MESSAGE:feedbackValue}
+    // const state = { EMAIL:emailValue,MESSAGE:feedbackValue}
     // console.log(formData);
     //  const dispatch = useDispatch();
     // dispatch(postUserData());
 
-  //   const { data } = await axios.post(
-  //     'https://zxtsbd2v6e.execute-api.us-east-1.amazonaws.com/prod/support',
-  //     formData
-  //  )
-   // setFetchedData(data)
+    //   const { data } = await axios.post(
+    //     'https://zxtsbd2v6e.execute-api.us-east-1.amazonaws.com/prod/support',
+    //     formData
+    //  )
+    // setFetchedData(data)
   }
   const classes = useStyles();
   useEffect(() => {
-    if(localStorage.getItem("user")===null){
-      console.log("logout");
-      navigate('/login')
+    if (localStorage.getItem('user') === null) {
+      console.log('logout');
+      navigate('/login');
     }
-   
+
     // Update the document title using the browser API
-  else{
-   FetchData();
-  }
-  },[]);
+    else {
+      FetchData();
+    }
+  }, []);
   return (
-   <>
-    <Helmet>
-      <title>Dashboard | MoneyWise</title>
-    </Helmet>
-    <Box
-      sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
-      }}
-    >
-       <CssBaseline />
-      <Container maxWidth="xl">
-      <Box className={classes.boxed}>
-      <h3 className="formheading2">Types of Expenditures</h3>
-        <Grid
-          container
-          spacing={3}
-          sx={{
-            paddingLeft:"0.6rem",
-            paddingRight:"0.6rem"
-          }} 
-        >
-          
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-            
-          >
-            <Household />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <Shopping />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <Loan/>
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <Misc sx={{ bgcolor: '#ffcccb', color: '#000000',height: '100%' }} />
-          </Grid>
-          </Grid>
-          <br></br>
-          </Box>
-          <br></br><br></br>
+    <>
+      <Helmet>
+        <title>Dashboard | MoneyWise</title>
+      </Helmet>
+      <Box
+        sx={{
+          backgroundColor: 'background.default',
+          minHeight: '100%',
+          py: 3
+        }}
+      >
+        <CssBaseline />
+        <Container maxWidth="xl">
           <Box className={classes.boxed}>
-          <h3 className="formheading2">Types of Incomes</h3>
-          <Grid
-          container
-          spacing={3}
-          sx={{
-            paddingLeft:"0.6rem",
-            paddingRight:"0.6rem"
-          }} 
-        >
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <SalariedIncome />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-             <Buisnessincome/>
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <Investmentincome/>
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <MiscIncome  sx={{ bgcolor: '#adff7a', color: '#000000',height: '100%' }}/>
-          </Grid>
-          </Grid>
-          <br></br>
+            <h3 className="formheading2">Types of Expenditures</h3>
+            <Grid
+              container
+              spacing={3}
+              sx={{
+                paddingLeft: '0.6rem',
+                paddingRight: '0.6rem'
+              }}
+            >
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <Household value={houses} />
+              </Grid>
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <Shopping value={shopping} />
+              </Grid>
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <Loan value={inv} />
+              </Grid>
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <Misc
+                  sx={{ bgcolor: '#ffcccb', color: '#000000', height: '100%' }}
+                  value={misc}
+                />
+              </Grid>
+            </Grid>
+            <br></br>
           </Box>
-          <br></br><br></br>
-         
-          <Grid
-          container
-          spacing={3}
-          
-        >
-          <Grid
-            item
-            lg={7}
-            md={12}
-            xl={8}
-            xs={12}
-          >
-            <Sales />
+          <br></br>
+          <br></br>
+          <Box className={classes.boxed}>
+            <h3 className="formheading2">Types of Incomes</h3>
+            <Grid
+              container
+              spacing={3}
+              sx={{
+                paddingLeft: '0.6rem',
+                paddingRight: '0.6rem'
+              }}
+            >
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <SalariedIncome />
+              </Grid>
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <Buisnessincome />
+              </Grid>
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <Investmentincome />
+              </Grid>
+              <Grid item lg={3} sm={6} xl={3} xs={12}>
+                <MiscIncome
+                  sx={{ bgcolor: '#adff7a', color: '#000000', height: '100%' }}
+                />
+              </Grid>
+            </Grid>
+            <br></br>
+          </Box>
+          <br></br>
+          <br></br>
+
+          <Grid container spacing={3}>
+            <Grid item lg={7} md={12} xl={8} xs={12}>
+              <Sales />
+            </Grid>
+
+            <Grid item lg={5} md={6} xl={4} xs={12}>
+              <TrafficByExpense sx={{ height: '100%' }} />
+            </Grid>
+            <Grid item lg={4} md={6} xl={3} xs={12}>
+              <LatestProducts sx={{ height: '100%' }} />
+            </Grid>
+            <Grid item lg={8} md={12} xl={9} xs={12}>
+              <LatestOrders />
+            </Grid>
           </Grid>
-          
-          <Grid
-            item
-            lg={5}
-            md={6}
-            xl={4}
-            xs={12}
-          >
-            <TrafficByExpense sx={{ height: '100%' }} />
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
-            <LatestProducts sx={{ height: '100%' }} />
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            <LatestOrders />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
     </>
-);
-}
- 
+  );
+};
 
 export default Dashboard;
