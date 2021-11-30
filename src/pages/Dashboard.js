@@ -66,7 +66,6 @@ const Dashboard = () => {
   }
   const classes = useStyles();
   useEffect(() => {
-    
     if(localStorage.getItem("user")===null){
       console.log("logout");
       navigate('/login')

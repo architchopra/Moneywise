@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Card, FormControl, MenuItem } from '@material-ui/core';
+import { Container, Card, FormControl, MenuItem } from '@material-ui/core'
+import {Alert,Collapse,IconButton} from '@mui/material';
 import { makeStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -11,6 +12,8 @@ import '../index.css';
 import InputLabel from '@material-ui/core/InputLabel';
 import api from '../api';
 import Select from '@material-ui/core/Select';
+import CloseIcon from '@mui/icons-material/Close';
+
 const useStyles = makeStyles(() => ({
   root: {
     marginTop: '7rem',
@@ -60,6 +63,8 @@ const theme = createTheme({
 // };
 
 const Form = () => {
+  const [open,setOpen]=useState(false);
+  const [message,setmsg]=useState("");
   const classes = useStyles();
   // create state variables for each input
   const [expense, setExpense] = useState('');
@@ -86,12 +91,16 @@ const Form = () => {
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
-    const {data} = await api
+    const data = await api
       .post('/api/private/expenses/add', { type, cost,date:dates }, config)
       .catch((error) => {
-        console.log(error);
+        setmsg(error.message);
+        console.log(error.message);
+        return;
       });
+      setOpen(true);
     console.log(data);
+    setmsg(data.data.data);
     console.log(dates);
     // formData.append("type", expense);S
     // formData.append('cost', cost);
@@ -119,7 +128,26 @@ const Form = () => {
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
-                <h3 className="formheading">Contact us | Moneywise</h3>
+                <h3 className="formheading">Contact us | Moneywise</h3>        
+                <Collapse in={open}>
+                    <Alert
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setOpen(false);
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                      }
+                      sx={{ mb: 2 }}
+                    >
+                      {message}
+                    </Alert>
+                  </Collapse>
                 <FormControl className={classes.formControl}>
                   <InputLabel
                     id="demo-simple-select-label"
