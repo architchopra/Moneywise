@@ -13,6 +13,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const Sales = (props) => {
+  console.log(props.data.earningval);
   const theme = useTheme();
 
   const data = {
@@ -23,7 +24,7 @@ const Sales = (props) => {
         barThickness: 12,
         borderRadius: 4,
         categoryPercentage: 0.5,
-        data: [18, 5, 19, 27, 29, 19, 20],
+        data: props.data.val,
         label: 'This year',
         maxBarThickness: 10
       },
@@ -33,12 +34,12 @@ const Sales = (props) => {
         barThickness: 12,
         borderRadius: 4,
         categoryPercentage: 0.5,
-        data: [11, 20, 12, 29, 30, 25, 13],
+        data: props.data.earningval,
         label: 'Last year',
         maxBarThickness: 10
       }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug']
+    labels: props.data.date
   };
 
   const options = {

@@ -37,6 +37,7 @@ const Dashboard = () => {
   const [misc, setMisc] = useState([]);
   let navigate = useNavigate();
   const [expense, setExpense] = useState([]);
+  const [graphdata,setGraphdata]=useState({});
   // const [object, setObject] = useState({
   //   admin:{
   //   household: '',
@@ -64,10 +65,15 @@ const Dashboard = () => {
         console.log(error);
       });
     setExpense(data.expenses);
-    console.log(data.expenses);
-
-    
-
+    //console.log(data.expenses);
+    const earningdata  = await api
+      .post('/api/private/earnings', {}, config)
+      .catch((error) => {
+        console.log(error);
+    });
+    console.log(earningdata);
+    let earnings=earningdata.data.earning;
+    console.log(earnings);
     //   for(var i=0;i<data.expenses.length;i++){
     //    if(data.expenses[i].type=="household"){
     //      houses=houses+data.expenses[i].cost;
@@ -88,10 +94,10 @@ const Dashboard = () => {
       const sum = a.reduce(function (y, b) {
         return y + b;
       });
-      console.log(a, sum);
+      //console.log(a, sum);
       object[element] = sum;
       a.length = 0;
-      console.log(object);
+      //console.log(object);
       // setObject({
       //   ...object, admin: { ...object.admin, [element]: sum }
 
@@ -127,29 +133,45 @@ const Dashboard = () => {
     var dt= new Date();
     dt.setHours(0, 0, 0, 0);
     dt.setDate(1);
-    console.log(dt);
-    var expense=[],expensedate=[];
-    let i=0;
+    //console.log(dt);
+    var expenseval=[],expensedate=[],earningval=[];
+    let i=0,j=0;
       while(i<data.expenses.length){
         var curdt=new Date(data.expenses[i].date);
-        let sum=0;
-        console.log(dt,i);
+        let sum=0,sumearning=0;
+        //console.log(dt,i);
         while(curdt>=dt&&i<data.expenses.length){   
-          curdt=new Date(data.expenses[i].date);if(curdt<dt){
+          curdt=new Date(data.expenses[i].date);
+          if(curdt<dt){
             break;
           } 
           sum+=data.expenses[i].cost;
-          console.log(curdt,dt,i);
+          //console.log(curdt,dt,i);
           i++;
         }
-        expense.push(sum);
+        curdt=new Date(earnings[j].date);
+        while(curdt>=dt&&j<earnings.length){   
+          curdt=new Date(earnings[j].date);
+          if(curdt<dt){
+            break;
+          } 
+          sumearning+=earnings[j].cost;
+          //console.log(curdt,dt,i);
+          j++;
+        }
+        if(expensedate.length>6){
+          break;
+        }
+        expenseval.push(sum);
+        earningval.push(sumearning);
         expensedate.push(dt.toLocaleString('default', { month: 'short',year :'2-digit' }));
-        console.log(sum,dt.getMonth());
+        //console.log(sum,dt.getMonth());
         dt.setMonth(dt.getMonth()-1);
         dt.setDate(1);
       }
-    console.log(expensedate);
-    console.log(expense);
+      setGraphdata({val:expenseval,date:expensedate,earningval:earningval});
+    //console.log(graphdata);
+    //console.log(expenseval);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
     // const {data} = await api.post('/api/private/mails',{},config).catch((error)=>{console.log(error)});
     // console.log(data);
@@ -256,7 +278,7 @@ const Dashboard = () => {
 
           <Grid container spacing={3}>
             <Grid item lg={7} md={12} xl={8} xs={12}>
-              <Sales />
+              <Sales data={graphdata} />
             </Grid>
 
             <Grid item lg={5} md={6} xl={4} xs={12}>
