@@ -35,7 +35,7 @@ import {
               color="textPrimary"
               variant="h3"
             >
-             20000
+            {props.value}
             </Typography>
           </Grid>
           <Grid item>

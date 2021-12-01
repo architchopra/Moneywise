@@ -35,6 +35,10 @@ const Dashboard = () => {
   const [shopping, setShopping] = useState([]);
   const [inv, setInv] = useState([]);
   const [misc, setMisc] = useState([]);
+  const [houses2, setHouses2] = useState([]);
+  const [shopping2, setShopping2] = useState([]);
+  const [inv2, setInv2] = useState([]);
+  const [misc2, setMisc2] = useState([]);
   let navigate = useNavigate();
   const [expense, setExpense] = useState([]);
   const [graphdata,setGraphdata]=useState({});
@@ -47,6 +51,12 @@ const Dashboard = () => {
   //   }
   // });
   const object = {
+    household: '',
+    shopping: '',
+    misc: '',
+    investment: ''
+  };
+  const object2 = {
     household: '',
     shopping: '',
     misc: '',
@@ -65,7 +75,7 @@ const Dashboard = () => {
         console.log(error);
       });
     setExpense(data.expenses);
-    //console.log(data.expenses);
+    console.log(data.expenses);
     const earningdata  = await api
       .post('/api/private/earnings', {}, config)
       .catch((error) => {
@@ -80,7 +90,6 @@ const Dashboard = () => {
     //  }
     //  };
     const a = [];
-
     var typeNames = new Set();
     data.expenses.filter((x) => {
       typeNames.add(x.type);
@@ -114,7 +123,45 @@ const Dashboard = () => {
     setShopping(object.shopping);
     setInv(object.investment);
     setMisc(object.misc);
-    
+
+
+
+
+    const a2 = [];
+    var typeNames2 = new Set();
+    earnings.filter((x) => {
+      typeNames2.add(x.type);
+    });
+    typeNames2.forEach((element) => {
+      earnings.forEach((x) => {
+        if (x.type == element) {
+          a2.push(x.cost);
+        }
+      });
+
+      const sum2 = a2.reduce(function (y, b) {
+        return y + b;
+      });
+      console.log(a2, sum2);
+      object2[element] = sum2;
+      a2.length = 0;
+      //console.log(object);
+      // setObject({
+      //   ...object, admin: { ...object.admin, [element]: sum }
+
+      // })
+
+    //   setObject(prevState => ({
+    //     ...prevState,
+    //     [element]: sum
+    // }));
+      
+    });
+    console.log(object2)
+    setHouses2(object2.household);
+    setShopping2(object2.shopping);
+    setInv2(object2.investment);
+    setMisc2(object2.misc);
     // let sum=0;
     //    if(x.type=="household"){
     //   sum=sum+x.cost;
@@ -258,17 +305,18 @@ const Dashboard = () => {
               }}
             >
               <Grid item lg={3} sm={6} xl={3} xs={12}>
-                <SalariedIncome />
+                <SalariedIncome value={houses2}/>
               </Grid>
               <Grid item lg={3} sm={6} xl={3} xs={12}>
-                <Buisnessincome />
+                <Buisnessincome value={shopping2}/>
               </Grid>
               <Grid item lg={3} sm={6} xl={3} xs={12}>
-                <Investmentincome />
+                <Investmentincome value={inv2} />
               </Grid>
               <Grid item lg={3} sm={6} xl={3} xs={12}>
                 <MiscIncome
                   sx={{ bgcolor: '#adff7a', color: '#000000', height: '100%' }}
+                  value={misc2}
                 />
               </Grid>
             </Grid>
