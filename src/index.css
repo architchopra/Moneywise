@@ -49,12 +49,14 @@
   margin-right: 40%;
 }
 .inc{
-  background-color: #84fb95;
-  background-image: linear-gradient(315deg, #44d15c 0%, #cef576 94%);
+ 
+  background-color: #09c7fb;
+  background-image: linear-gradient(315deg, #09c7fb 0%, #93fb9d 74%);
+  
   max-height: 9.5em;
 }
 .exp{
-  background-color: #fc5296;
-background-image: linear-gradient(45deg, #f393b9 0%, #ff5340 94%); 
+  background-color: #09c7fb;
+background-image: linear-gradient(315deg, #09c7fb 0%, #f16959 54%); 
 max-height: 9.5em;
 }
