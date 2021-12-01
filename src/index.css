@@ -51,8 +51,10 @@
 .inc{
   background-color: #84fb95;
   background-image: linear-gradient(315deg, #44d15c 0%, #cef576 94%);
+  max-height: 9.5em;
 }
 .exp{
   background-color: #fc5296;
 background-image: linear-gradient(45deg, #f393b9 0%, #ff5340 94%); 
+max-height: 9.5em;
 }

@@ -70,6 +70,7 @@ const Misc = (props) => {
          Beware of little expenses. A small leak will sink a great ship.
         </Typography>
       </Box>
+      <br></br>
     </CardContent>
   </Card>
 );

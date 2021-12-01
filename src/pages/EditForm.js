@@ -153,7 +153,7 @@ const EditForm = () => {
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
-                <h3 className="formheading">Contact us | Moneywise</h3>        
+                <h3 className="formheading">Add your Expenses</h3>        
                 <Collapse in={open}>
                     <Alert severity={sever}
                       action={

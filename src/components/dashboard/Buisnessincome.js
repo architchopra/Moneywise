@@ -62,11 +62,16 @@ import {
             12%
           </Typography> */}
           <Typography
+          
+          
            
             variant="subtitle2"
           >
            Laziness may appear attractive, but work gives satisfaction
           </Typography>
+          
+          <br></br>
+          
         </Box>
         {/* <Box sx={{ pt: 3 }}>
           <LinearProgress
@@ -74,6 +79,8 @@ import {
             variant="determinate"
           />
         </Box> */}
+        <br></br>
+        <br></br>
       </CardContent>
     </Card>
   );

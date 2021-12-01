@@ -75,6 +75,7 @@ const Loan = (props) => (
           variant="determinate"
         />
       </Box> */}
+      <br></br>
     </CardContent>
   </Card>
 );

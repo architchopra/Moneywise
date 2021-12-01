@@ -21,22 +21,22 @@ const Sales = (props) => {
       {
         backgroundColor: colors.red[500],
         barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
+        barThickness: 22,
+        borderRadius: 9,
         categoryPercentage: 0.5,
         data: props.data.val,
         label: 'Monthly Expense',
-        maxBarThickness: 10
+        maxBarThickness: 15
       },
       {
         backgroundColor: colors.green[400],
-        barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
+        barPercentage: 0.8,
+        barThickness: 22,
+        borderRadius: 9,
         categoryPercentage: 0.5,
         data: props.data.earningval,
         label: 'Monthly Income',
-        maxBarThickness: 10
+        maxBarThickness: 15
       }
     ],
     labels: props.data.date
@@ -105,7 +105,8 @@ const Sales = (props) => {
             Last 7 days
           </Button>
         )}
-        title="LAST EXPENSES"
+        titleTypographyProps={{variant:'h5',fontWeight:'500' }}
+        title="EXPENSES & INCOMES"
       />
       <Divider />
       <CardContent>
