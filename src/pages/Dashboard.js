@@ -60,10 +60,10 @@ const Dashboard = () => {
     investment: ''
   };
   const object2 = {
-    household: '',
-    shopping: '',
-    misc: '',
-    investment: ''
+    salried: '',
+    buisness: '',
+    miscinc: '',
+    inc: ''
   };
   async function FetchData() {
     const config = {
@@ -163,10 +163,10 @@ const Dashboard = () => {
     });
     setPiedata2(object2);
     console.log(object2)
-    setHouses2(object2.household);
-    setShopping2(object2.shopping);
-    setInv2(object2.investment);
-    setMisc2(object2.misc);
+    setHouses2(object2.salried);
+    setShopping2(object2.buisness);
+    setInv2(object2.inc);
+    setMisc2(object2.miscinc);
     // let sum=0;
     //    if(x.type=="household"){
     //   sum=sum+x.cost;

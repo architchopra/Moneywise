@@ -178,12 +178,12 @@ const EditFormincome = () => {
                     onChange={onExpenseChange}
                     label="TYPE OF INCOME "
                   >
-                    <MenuItem value="household">Salary Income(Fixed Income)</MenuItem>
-                    <MenuItem value="shopping">Income from buisness</MenuItem>
-                    <MenuItem value="investment">
+                    <MenuItem value="salried">Salary Income(Fixed Income)</MenuItem>
+                    <MenuItem value="buisness">Income from buisness</MenuItem>
+                    <MenuItem value="inc">
                       Income from investments
                     </MenuItem>
-                    <MenuItem value="misc">Miscellenious Income</MenuItem>
+                    <MenuItem value="miscinc">Miscellenious Income</MenuItem>
                   </Select>
                 </FormControl>
 
