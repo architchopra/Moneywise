@@ -21,7 +21,8 @@ import { Abc } from '@mui/icons-material';
 // import { CssBaseline } from '@mui/material';
 const useStyles = makeStyles(() => ({
   boxed: {
-    backgroundColor: '#FFFFFF'
+    
+    paddingLeft: '5px'
   },
   heading: {
     fontSize: '2rem',
@@ -268,7 +269,7 @@ const Dashboard = () => {
         sx={{
           
           minHeight: '100%',
-          py: 3
+          py: 2
         }}
       >
         <CssBaseline />
@@ -278,10 +279,7 @@ const Dashboard = () => {
             <Grid
               container
               spacing={3}
-              sx={{
-                paddingLeft: '0.6rem',
-                paddingRight: '0.6rem'
-              }}
+              
             >
               <Grid item lg={3} sm={6} xl={3} xs={12}>
                 <Household value={houses} />
@@ -301,8 +299,8 @@ const Dashboard = () => {
             </Grid>
             <br></br>
           </Box>
-          <br></br>
-          <br></br>
+          {/* <br></br> */}
+          {/* <br></br> */}
           <Box className={classes.boxed}>
             <h3 className="formheading2">Types of Incomes</h3>
             <Grid

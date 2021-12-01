@@ -63,7 +63,7 @@ const theme = createTheme({
 //   // console.log(user);
 // };
 
-const Form = () => {
+const EditForm = () => {
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [btnDisabled1, setBtnDisabled1] = useState(true);
   const [btnDisabled2, setBtnDisabled2] = useState(true);
@@ -274,4 +274,4 @@ const Form = () => {
 //   // console.log(user);
 // };
 
-export default Form;
+export default EditForm;

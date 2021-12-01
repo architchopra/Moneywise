@@ -37,12 +37,12 @@
     padding-right: auto !important;
   }
   .formheading2 {
-    font-size: 2rem !important;
+    font-size: 1.2rem !important;
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-weight: 700;
     font-family: "Lato", sans-serif;
-    margin-left: 40%;
+    
     color:#00008b;
 }
 .nav{
