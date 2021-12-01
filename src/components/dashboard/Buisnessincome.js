@@ -9,11 +9,12 @@ import {
   } from '@material-ui/core';
   import { green } from '@material-ui/core/colors';
   import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
-  
+  import "../../index.css";
+  import { grey } from '@mui/material/colors';
   const Buisnessincome = (props) => (
-    <Card
+    <Card className="inc"
       sx={{ height: '100%' }}
-      sx={{ bgcolor: ' 	#adff7a', color: '#000000' }} 
+      sx={{  color: '#000000' }} 
       {...props}
     >
       <CardContent>
@@ -31,22 +32,16 @@ import {
               Buisness Incomes
             </Typography>
             <Typography
-              color="textPrimary"
+             
               variant="h3"
             >
              {props.value}
             </Typography>
           </Grid>
           <Grid item>
-            <Avatar
-              sx={{
-                backgroundColor: green[600],
-                height: 50,
-                width: 50
-              }}
-            >
-              <BusinessCenterIcon />
-            </Avatar>
+            
+              <BusinessCenterIcon sx={{ color: grey[50] }}/>
+           
           </Grid>
         </Grid>
         <Box

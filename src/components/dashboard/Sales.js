@@ -19,23 +19,23 @@ const Sales = (props) => {
   const data = {
     datasets: [
       {
-        backgroundColor: colors.indigo[500],
+        backgroundColor: colors.red[500],
         barPercentage: 0.5,
         barThickness: 12,
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: props.data.val,
-        label: 'This year',
+        label: 'Monthly Expense',
         maxBarThickness: 10
       },
       {
-        backgroundColor: colors.grey[200],
+        backgroundColor: colors.green[400],
         barPercentage: 0.5,
         barThickness: 12,
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: props.data.earningval,
-        label: 'Last year',
+        label: 'Monthly Income',
         maxBarThickness: 10
       }
     ],

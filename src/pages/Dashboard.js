@@ -21,7 +21,7 @@ import { Abc } from '@mui/icons-material';
 // import { CssBaseline } from '@mui/material';
 const useStyles = makeStyles(() => ({
   boxed: {
-    backgroundColor: '#808080'
+    backgroundColor: '#FFFFFF'
   },
   heading: {
     fontSize: '2rem',
@@ -74,7 +74,7 @@ const Dashboard = () => {
       .catch((error) => {
         console.log(error);
       });
-    setExpense(data.expenses);
+    // setExpense(data.expenses);
     console.log(data.expenses);
     //console.log(data.expenses);
     const earningdata  = await api
@@ -266,7 +266,7 @@ const Dashboard = () => {
       </Helmet>
       <Box
         sx={{
-          backgroundColor: 'background.default',
+          
           minHeight: '100%',
           py: 3
         }}
@@ -294,7 +294,7 @@ const Dashboard = () => {
               </Grid>
               <Grid item lg={3} sm={6} xl={3} xs={12}>
                 <Misc
-                  sx={{ bgcolor: '#ffcccb', color: '#000000', height: '100%' }}
+                  sx={{  color: '#000000', height: '100%' }}
                   value={misc}
                 />
               </Grid>
@@ -324,7 +324,7 @@ const Dashboard = () => {
               </Grid>
               <Grid item lg={3} sm={6} xl={3} xs={12}>
                 <MiscIncome
-                  sx={{ bgcolor: '#adff7a', color: '#000000', height: '100%' }}
+                  sx={{  color: '#000000', height: '100%' }}
                   value={misc2}
                 />
               </Grid>

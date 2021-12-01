@@ -9,11 +9,13 @@ import {
 } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
-
+import "../../index.css";
+import { grey } from '@mui/material/colors';
 const Loan = (props) => (
   <Card
+  className="exp"
     sx={{ height: '100%' }}
-    sx={{ bgcolor: ' #ffcccb', color: '#000000' }} 
+    sx={{  color: '#000000' }} 
     {...props}
   >
     <CardContent>
@@ -31,22 +33,16 @@ const Loan = (props) => (
             Investment and Loan
           </Typography>
           <Typography
-            color="textPrimary"
+            
             variant="h3"
           >
           {props.value}
           </Typography>
         </Grid>
         <Grid item>
-          <Avatar
-            sx={{
-              backgroundColor: red[600],
-              height: 50,
-              width: 50
-            }}
-          >
-            <InsertChartIcon />
-          </Avatar>
+        
+            <InsertChartIcon sx={{ color: grey[50] }} />
+          
         </Grid>
       </Grid>
       <Box

@@ -16,6 +16,7 @@ import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
 import Logo from './Logo';
 import "../index.css"
+import { grey } from '@mui/material/colors';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
@@ -28,24 +29,27 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
     <AppBar
       elevation={0}
       {...rest}
+      sx={{ 
+        backgroundColor:"#FFFFFF"
+      }}
     >
       <Toolbar>
-      <Hidden xlUp>
-          <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
-            <MenuIcon />
+      {/* <Hidden xlUp> */}
+          <IconButton  onClick={onMobileNavOpen} size="large">
+            <MenuIcon sx={{ color: grey[900] }} />
           </IconButton>
-        </Hidden>
+        {/* </Hidden> */}
         
         
         <Box sx={{ flexGrow: 1 }} />
         <Hidden xlDown>
-          <IconButton color="inherit" size="large">
+          <IconButton color="000000" size="large">
             <Badge
               badgeContent={notifications.length}
               color="primary"
               variant="dot"
             >
-              <NotificationsIcon />
+              <NotificationsIcon sx={{ color: grey[900] }} />
             </Badge>
           </IconButton>
           <IconButton color="inherit" size="large">
@@ -63,11 +67,11 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
           </RouterLink>
           <RouterLink to="/">
           <div className="col">
-            <Typography variant="h1" style={{marginRight: "20%",marginTop: "5%"}}>Moneywise</Typography>
+            <Typography variant="h1" style={{marginRight: "20%",marginTop: "5%", color: "#00008b"}}>Moneywise</Typography>
             </div>
             </RouterLink>
             </div>
-            <div>
+            <div style={{color:"#00008b"}}>
           
              <h3>Hi {name}</h3>
            

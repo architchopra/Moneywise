@@ -9,13 +9,15 @@ import {
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import  HouseIcon from '@material-ui/icons/House';
 import { red } from '@material-ui/core/colors';
-
+import "../../index.css";
+import { grey } from '@mui/material/colors';
 const Household = (props) => {
   console.log(props)
   return (
     <Card
+    className="exp"
     sx={{ height: '100%',
-    bgcolor: ' #ffcccb', color: '#000000'  
+     color: '#000000'  
    }}
     {...props}
   >
@@ -42,15 +44,9 @@ const Household = (props) => {
           </Typography>
         </Grid>
         <Grid item>
-          <Avatar
-            sx={{
-              backgroundColor: red[600],
-              height: 56,
-              width: 56
-            }}
-          >
-            <HouseIcon />
-          </Avatar>
+          
+            <HouseIcon sx={{ color: grey[50] }} />
+        
         </Grid>
       </Grid>
       <Box

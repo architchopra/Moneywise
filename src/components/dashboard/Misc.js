@@ -8,12 +8,16 @@ import {
 import { red } from '@material-ui/core/colors';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import { Box } from '@material-ui/system';
-
+import "../../index.css";
+import { grey } from '@mui/material/colors';
 const Misc = (props) => {
 
   return(
-  <Card sx={{ bgcolor: '#ffcccb', color: '#000000' }}  {...props}>
-    <CardContent sx={{ bgcolor: ' #ffcccb', color: '#000000' }}  >
+  <Card 
+  className="exp"
+  sx={{ color: '#000000' }} 
+   {...props}>
+    <CardContent sx={{  color: '#000000' }}  >
       <Grid
         container
         spacing={3}
@@ -28,22 +32,16 @@ const Misc = (props) => {
            Miscellaneous Expenditure
           </Typography>
           <Typography
-            color="textPrimary"
+           
             variant="h3"
           >
            {props.value}
           </Typography>
         </Grid>
         <Grid item>
-          <Avatar
-            sx={{
-              backgroundColor: red[600],
-              height: 56,
-              width: 56
-            }}
-          >
-            <AttachMoneyIcon />
-          </Avatar>
+          
+            <AttachMoneyIcon sx={{ color: grey[50] }} />
+         
       
         </Grid>
     
@@ -67,7 +65,7 @@ const Misc = (props) => {
         </Typography> */}
         <Typography
           
-          variant="caption"
+          variant="subtitle2"
         >
          Beware of little expenses. A small leak will sink a great ship.
         </Typography>

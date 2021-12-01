@@ -10,10 +10,14 @@ import { red } from '@material-ui/core/colors';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 import ShoppingBagIcon from '@material-ui/icons/ShoppingBag';
-
+import "../../index.css";
+import { grey } from '@mui/material/colors';
 const Shopping = (props) =>{
   return(
-    <Card sx={{ bgcolor: ' #ffcccb', color: '#000000' }} {...props}>
+    <Card 
+    className="exp"
+    sx={{  color: '#000000' }}
+     {...props}>
       <CardContent >
         <Grid
           container
@@ -29,22 +33,16 @@ const Shopping = (props) =>{
               Shopping Expense
             </Typography>
             <Typography
-              color="textPrimary"
+              
               variant="h3"
             >
              {props.value}
             </Typography>
           </Grid>
           <Grid item>
-            <Avatar
-              sx={{
-                backgroundColor: red[600],
-                height: 56,
-                width: 56
-              }}
-            >
-              <ShoppingBagIcon />
-            </Avatar>
+           
+              <ShoppingBagIcon sx={{ color: grey[50] }}/>
+            
           </Grid>
         </Grid>
         <Box

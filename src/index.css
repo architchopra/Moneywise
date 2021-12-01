@@ -42,9 +42,18 @@
     margin-bottom: 2rem;
     font-weight: 700;
     font-family: "Lato", sans-serif;
-    margin-left: 30%;
-    color: white;
+    margin-left: 40%;
+    color:#00008b;
 }
 .nav{
   margin-right: 40%;
+}
+.inc{
+  background-color: #f8ef42;
+  background-image: linear-gradient(315deg, #e6db0d 0%, #0cd84d 84%);
+   width: 50;
+}
+.exp{
+  background-color: #fc5296;
+background-image: linear-gradient(45deg, #f393b9 0%, #ff5340 94%); 
 }
