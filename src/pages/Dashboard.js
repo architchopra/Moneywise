@@ -36,7 +36,7 @@ const Dashboard = () => {
   const [inv, setInv] = useState([]);
   const [misc, setMisc] = useState([]);
   let navigate = useNavigate();
-  const [expense, setExpense] = useState([]);
+  const [alltransac, setAlltransac] = useState([]);
   const [graphdata,setGraphdata]=useState({});
   // const [object, setObject] = useState({
   //   admin:{
@@ -64,7 +64,6 @@ const Dashboard = () => {
       .catch((error) => {
         console.log(error);
       });
-    setExpense(data.expenses);
     //console.log(data.expenses);
     const earningdata  = await api
       .post('/api/private/earnings', {}, config)
@@ -170,7 +169,15 @@ const Dashboard = () => {
         dt.setDate(1);
       }
       setGraphdata({val:expenseval,date:expensedate,earningval:earningval});
-      
+      earnings=earnings.map((a)=>({...a,"status":"debit"}));
+      for(let i=0;i<data.expenses.length;i++){
+        earnings.push({...data.expenses[i],"status":"credit"});
+      }
+      earnings.sort((a,b)=>{
+        let ad=new Date(a.date),bd=new Date(b.date);
+        return bd-ad;
+      })
+      setAlltransac(earnings);
     //console.log(graphdata);
     //console.log(expenseval);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
@@ -289,7 +296,7 @@ const Dashboard = () => {
               <TrafficByExpense sx={{ height: '100%' }} />
             </Grid>
             <Grid item lg={12} md={12} xl={12} xs={12}>
-              <LatestOrders />
+              <LatestOrders orders={alltransac} />
             </Grid>
           </Grid>
         </Container>
