@@ -219,7 +219,7 @@ const EditForm = () => {
                   value={cost}
                   required
                   sx={{ marginLeft: "0.5em"}}
-               
+                  type="number"
                   
                   // value={password}
                   // onChange={e => setPassword(e.target.value)}
