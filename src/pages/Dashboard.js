@@ -233,6 +233,7 @@ const Dashboard = () => {
         let ad=new Date(a.date),bd=new Date(b.date);
         return bd-ad;
       })
+      while (earnings.length > 10) { earnings.pop(); }
       setAlltransac(earnings);
     //console.log(graphdata);
     //console.log(expenseval);

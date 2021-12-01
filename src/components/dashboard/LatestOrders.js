@@ -131,7 +131,7 @@ const LatestOrders = (props) => (
                 </TableCell>
                 <TableCell>
                   <Chip
-                    color="primary"
+                    color={(order.status==="credit")?"success":"error"}
                     label={order.status}
                     size="small"
                   />
