@@ -4,10 +4,10 @@
     margin-bottom: 2rem;
     font-weight: 700;
     font-family: "Lato", sans-serif;
-    margin-left: 30%;
+    margin-left: 20%;
 }
 .btnsend {
-    background-color: #333333 !important;
+    /* background-color: #333333 !important; */
     font-size: 1rem !important;
     color: white !important;
     font-weight: 700 !important;

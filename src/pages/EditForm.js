@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { Container, Card, FormControl, MenuItem } from '@material-ui/core'
 import {Alert,Collapse,IconButton} from '@mui/material';
 import { makeStyles } from '@material-ui/styles';
@@ -7,16 +7,17 @@ import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core';
 import { createTheme } from '@material-ui/core/styles';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { useState } from 'react';
+
 import '../index.css';
 import InputLabel from '@material-ui/core/InputLabel';
 import api from '../api';
 import Select from '@material-ui/core/Select';
 import CloseIcon from '@mui/icons-material/Close';
+import { Box } from '@material-ui/system';
 
 const useStyles = makeStyles(() => ({
   root: {
-    marginTop: '7rem',
+    marginTop: '5rem',
     flexDirection: 'column',
     marginBottom: '4rem'
   },
@@ -34,8 +35,8 @@ const useStyles = makeStyles(() => ({
     marginLeft: '0.1rem'
   },
   field: {
-    marginTop: '2rem',
-    marginBottom: '2rem'
+    marginTop: '3rem',
+    marginBottom: '3rem'
   },
   btn: {
     marginLeft: '2%',
@@ -63,6 +64,10 @@ const theme = createTheme({
 // };
 
 const Form = () => {
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [btnDisabled1, setBtnDisabled1] = useState(true);
+  const [btnDisabled2, setBtnDisabled2] = useState(true);
+  const [btnDisabled3, setBtnDisabled3] = useState(true);
   const [open,setOpen]=useState(false);
   const [message,setmsg]=useState("");
   const [sever,setSever]=useState("info");
@@ -75,12 +80,24 @@ const Form = () => {
   //   date: { dates }
   // };
   // const [,feedbackValue, setTextValue] = useState("");
+  // const tryenable=()=>{
+  //   if(btnd)
+  // }
 
-  const onExpenseChange = (e) => setExpense(e.target.value);
-  const onCostChange = (e) => setCost(e.target.value);
-  const onDateChange = (e) => setDates(e.target.value);
+  const onExpenseChange = (e) => {
+    setExpense(e.target.value);
+    setBtnDisabled1(!e.target.value.length)
+  };
+  const onCostChange = (e) =>{ 
+    setCost(e.target.value);
+    setBtnDisabled2(!e.target.value.length);
+  }
+  const onDateChange = (e) => {
+    setDates(e.target.value);
+    setBtnDisabled3(!e.target.value.length);
+  }
   // const handleReset = () => setTextValue("");
-
+  //  setBtnDisabled(btnDisabled1&&btnDisabled2&&btnDisabled3)
   async function fetchData() {
     const type = expense;
     const config = {
@@ -126,14 +143,100 @@ const Form = () => {
     e.preventDefault();
     fetchData();
   };
+  useEffect(() => {
+   setBtnDisabled((btnDisabled2||btnDisabled1||btnDisabled3));
+  }, [btnDisabled1,btnDisabled2,btnDisabled3]);
   return (
-    <form noValidate autoComplete="off">
+    <Box  component="form" noValidate autoComplete="off">
       <ThemeProvider theme={theme}>
-        <Container maxWidth="xl">
+        <Container maxWidth="md">
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
                 <h3 className="formheading">Contact us | Moneywise</h3>        
+                
+                <FormControl className={classes.formControl}>
+                  <InputLabel
+                    id="demo-simple-select--input"
+                    InputLabelProps={{
+                      shrink: true
+                    }}
+                    fullWidth
+                    select
+                  >
+                    TYPE OF EXPENSE
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={expense}
+                    onChange={onExpenseChange}
+                    label="TYPE OF EXPENSE "
+                    
+        
+                    variant="outlined"
+                    fullWidth
+                    type="search"
+                    // InputLabelProps={{
+                    //   shrink: true
+                    // }}
+                  >
+                    <MenuItem value="household">Household Expense</MenuItem>
+                    <MenuItem value="shopping">Shopping Expense</MenuItem>
+                    <MenuItem value="investment">
+                      Investment and Loan Expense
+                    </MenuItem>
+                    <MenuItem value="misc">Miscellenious Expense</MenuItem>
+                  </Select>
+                </FormControl>
+
+                <TextField
+                  label=" Enter the Amount"
+                  onChange={onCostChange}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  className={classes.field}
+                  variant="outlined"
+                  value={cost}
+                  required
+                  sx={{ marginLeft: "0.5em"}}
+               
+                  
+                  // value={password}
+                  // onChange={e => setPassword(e.target.value)}
+                />
+                <TextField
+                  id="date"
+                  label="Date"
+                  type="date"
+                  defaultValue="2021-12-8"
+                  // value={dat.date}
+                  onChange={onDateChange}
+                  className={classes.field}
+                  sx={{ width: 220 ,marginLeft: "5em"}}
+
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  required
+                  fullWidth
+                  
+        
+                />
+                
+                <div>
+                  <Button
+                    variant="contained"
+                    className="btnsend"
+                    endIcon={<ArrowForwardIcon />}
+                    onClick={handleSubmit}
+                    disabled={btnDisabled}
+                    color="success"
+                  >
+                    Send
+                  </Button>
+                </div>
                 <Collapse in={open}>
                     <Alert severity={sever}
                       action={
@@ -148,84 +251,17 @@ const Form = () => {
                           <CloseIcon fontSize="inherit" />
                         </IconButton>
                       }
-                      sx={{ mb: 2 }}
+                      sx={{ mb: 3}}
                     >
                       {message}
                     </Alert>
                   </Collapse>
-                <FormControl className={classes.formControl}>
-                  <InputLabel
-                    id="demo-simple-select-label"
-                    InputLabelProps={{
-                      shrink: true
-                    }}
-                  >
-                    TYPE OF EXPENSE
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={expense}
-                    onChange={onExpenseChange}
-                    variant="outlined"
-                    InputLabelProps={{
-                      shrink: true
-                    }}
-                  >
-                    <MenuItem value="household">Household Expense</MenuItem>
-                    <MenuItem value="shopping">Shopping Expense</MenuItem>
-                    <MenuItem value="investment">
-                      Investment and Loan Expense
-                    </MenuItem>
-                    <MenuItem value="misc">Miscellenious Expense</MenuItem>
-                  </Select>
-                </FormControl>
-
-                <TextField
-                  label=" How can we assist you?"
-                  onChange={onCostChange}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                  className={classes.field}
-                  variant="outlined"
-                  value={cost}
-                  required
-                  fullWidth
-
-                  // value={password}
-                  // onChange={e => setPassword(e.target.value)}
-                />
-                <TextField
-                  id="date"
-                  label="Date"
-                  type="date"
-                  defaultValue="2017-05-24"
-                  // value={dat.date}
-                  onChange={onDateChange}
-                  sx={{ width: 220 }}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                  required
-                  fullWidth
-                />
-                <div>
-                  <Button
-                    variant="contained"
-                    className="btnsend"
-                    endIcon={<ArrowForwardIcon />}
-                    onClick={handleSubmit}
-                  >
-                    Send
-                  </Button>
-                </div>
               </div>
             </Container>
           </Card>
         </Container>
       </ThemeProvider>
-    </form>
+    </Box>
   );
 };
 // const handleSubmit=()=>{
