@@ -225,9 +225,9 @@ const Dashboard = () => {
         dt.setDate(1);
       }
       setGraphdata({val:expenseval,date:expensedate,earningval:earningval});
-      earnings=earnings.map((a)=>({...a,"status":"debit"}));
+      earnings=earnings.map((a)=>({...a,"status":"credit"}));
       for(let i=0;i<data.expenses.length;i++){
-        earnings.push({...data.expenses[i],"status":"credit"});
+        earnings.push({...data.expenses[i],"status":"debit"});
       }
       earnings.sort((a,b)=>{
         let ad=new Date(a.date),bd=new Date(b.date);
