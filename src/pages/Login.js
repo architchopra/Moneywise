@@ -11,7 +11,6 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
-import FacebookIcon from '../icons/Facebook';
 import GoogleLogin from 'react-google-login';
 import api from '../api';
 
@@ -99,24 +98,11 @@ const Login = () => {
                     xs={12}
                     md={6}
                   >
-                    <Button
-                      color="primary"
-                      fullWidth
-                      startIcon={<FacebookIcon />}
-                      onClick={handleSubmit}
-                      size="large"
-                      variant="contained"
-                    >
-                      Login with Facebook
-                    </Button>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                  >
                     <GoogleLogin
                       clientId={process.env.REACT_APP_CLIENT_ID}
+                      // render={renderProps => (
+                      //   <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Google</button>
+                      // )}
                       buttonText="Login"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}

@@ -170,6 +170,7 @@ const Dashboard = () => {
         dt.setDate(1);
       }
       setGraphdata({val:expenseval,date:expensedate,earningval:earningval});
+      
     //console.log(graphdata);
     //console.log(expenseval);
     //console.log(JSON.parse(localStorage.getItem("user")).token);
@@ -277,17 +278,17 @@ const Dashboard = () => {
           <br></br>
 
           <Grid container spacing={3}>
-            <Grid item lg={7} md={12} xl={8} xs={12}>
+            <Grid item lg={12} md={12} xl={12} xs={12}>
               <Sales data={graphdata} />
             </Grid>
 
-            <Grid item lg={5} md={6} xl={4} xs={12}>
+            <Grid item lg={6} md={6} xl={6} xs={12}>
               <TrafficByExpense sx={{ height: '100%' }} />
             </Grid>
-            <Grid item lg={4} md={6} xl={3} xs={12}>
-              <LatestProducts sx={{ height: '100%' }} />
+            <Grid item lg={6} md={6} xl={6} xs={12}>
+              <TrafficByExpense sx={{ height: '100%' }} />
             </Grid>
-            <Grid item lg={8} md={12} xl={9} xs={12}>
+            <Grid item lg={12} md={12} xl={12} xs={12}>
               <LatestOrders />
             </Grid>
           </Grid>

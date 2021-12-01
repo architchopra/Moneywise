@@ -65,6 +65,7 @@ const theme = createTheme({
 const Form = () => {
   const [open,setOpen]=useState(false);
   const [message,setmsg]=useState("");
+  const [sever,setSever]=useState("info");
   const classes = useStyles();
   // create state variables for each input
   const [expense, setExpense] = useState('');
@@ -92,12 +93,14 @@ const Form = () => {
     const data = await api
       .post('/api/private/earnings/add', { type, cost,date:dates }, config)
       .catch((error) => {
+        setSever("error");
         setmsg(error.message);
         console.log(error.message);
         return;
       });
       setOpen(true);
       if(data){
+        setSever("success");
         setmsg(data.data.data);
         console.log(dates);
       }
@@ -129,7 +132,7 @@ const Form = () => {
               <div className={classes.form}>
                 <h3 className="formheading">Contact us | Moneywise</h3>
                 <Collapse in={open}>
-                    <Alert
+                    <Alert severity={sever}
                       action={
                         <IconButton
                           aria-label="close"
