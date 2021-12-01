@@ -34,28 +34,12 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
       }}
     >
       <Toolbar>
-      {/* <Hidden xlUp> */}
           <IconButton  onClick={onMobileNavOpen} size="large">
             <MenuIcon sx={{ color: grey[900] }} />
           </IconButton>
-        {/* </Hidden> */}
         
         
         <Box sx={{ flexGrow: 1 }} />
-        <Hidden xlDown>
-          <IconButton color="000000" size="large">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon sx={{ color: grey[900] }} />
-            </Badge>
-          </IconButton>
-          <IconButton color="inherit" size="large">
-            <InputIcon />
-          </IconButton>
-        </Hidden>
       
         
         <div className="nav">

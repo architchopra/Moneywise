@@ -149,7 +149,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
 
   return (
     <>
-      <Hidden xlUp>
+      {/* <Hidden xlUp> */}
         <Drawer
           anchor="left"
           onClose={onMobileClose}
@@ -163,8 +163,8 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
         >
           {content}
         </Drawer>
-      </Hidden>
-      <Hidden xlDown>
+      {/* </Hidden> */}
+      {/* <Hidden xlDown>
         <Drawer
           anchor="left"
           open
@@ -179,7 +179,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
         >
           {content}
         </Drawer>
-      </Hidden>
+      </Hidden> */}
     </>
   );
 };
