@@ -110,6 +110,7 @@ const Login = () => {
                       responseType="code"
                       scope="https://www.googleapis.com/auth/gmail.readonly"
                       cookiePolicy={'single_host_origin'}
+                      
                     />
                   </Grid>
                 </Grid>

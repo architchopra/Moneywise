@@ -154,7 +154,25 @@ const Form = () => {
             <Container maxWidth="sm">
               <div className={classes.form}>
                 <h3 className="formheading">Contact us | Moneywise</h3>        
-                
+                <Collapse in={open}>
+                    <Alert severity={sever}
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setOpen(false);
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                      }
+                      sx={{ mb: 3}}
+                    >
+                      {message}
+                    </Alert>
+                  </Collapse>
                 <FormControl className={classes.formControl}>
                   <InputLabel
                     id="demo-simple-select--input"
@@ -237,25 +255,7 @@ const Form = () => {
                     Send
                   </Button>
                 </div>
-                <Collapse in={open}>
-                    <Alert severity={sever}
-                      action={
-                        <IconButton
-                          aria-label="close"
-                          color="inherit"
-                          size="small"
-                          onClick={() => {
-                            setOpen(false);
-                          }}
-                        >
-                          <CloseIcon fontSize="inherit" />
-                        </IconButton>
-                      }
-                      sx={{ mb: 3}}
-                    >
-                      {message}
-                    </Alert>
-                  </Collapse>
+                
               </div>
             </Container>
           </Card>
