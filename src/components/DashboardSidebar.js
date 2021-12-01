@@ -19,13 +19,13 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  Users as UsersIcon,
 } from 'react-feather';
 import NavItem from './NavItem';
 
 const user = {
  
-  jobTitle: 'Developer',
+  jobTitle: '',
   name: 'Tester'
 };
 
@@ -78,6 +78,10 @@ const items = [
 ];
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
+  
+  if(localStorage.getItem("user")!=null){
+    user.name=JSON.parse(localStorage.getItem("user")).firstname;
+  }
   const location = useLocation();
 
   useEffect(() => {
