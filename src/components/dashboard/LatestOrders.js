@@ -115,19 +115,19 @@ const LatestOrders = (props) => (
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map((order) => (
+            {props.orders.map((order) => (
               <TableRow
                 hover
-                key={order.id}
+                key={order.date}
               >
                 <TableCell>
-                  {order.ref}
+                  {order.cost}
                 </TableCell>
                 <TableCell>
-                  {order.customer.name}
+                  {order.type}
                 </TableCell>
                 <TableCell>
-                  {moment(order.createdAt).format('DD/MM/YYYY')}
+                  {moment(order.date).format('DD/MM/YYYY')}
                 </TableCell>
                 <TableCell>
                   <Chip
