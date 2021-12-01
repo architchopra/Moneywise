@@ -175,7 +175,7 @@ const Form = () => {
                   </Collapse>
                 <FormControl className={classes.formControl}>
                   <InputLabel
-                    id="demo-simple-select--input"
+                    id="demo-simple-select-input"
                     InputLabelProps={{
                       shrink: true
                     }}

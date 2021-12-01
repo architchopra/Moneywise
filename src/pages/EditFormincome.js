@@ -7,16 +7,17 @@ import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core';
 import { createTheme } from '@material-ui/core/styles';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../index.css';
 import InputLabel from '@material-ui/core/InputLabel';
 import api from '../api';
 import Select from '@material-ui/core/Select';
 import CloseIcon from '@mui/icons-material/Close';
+import { Box } from '@material-ui/system';
 
 const useStyles = makeStyles(() => ({
   root: {
-    marginTop: '7rem',
+    marginTop: '5rem',
     flexDirection: 'column',
     marginBottom: '4rem'
   },
@@ -34,8 +35,8 @@ const useStyles = makeStyles(() => ({
     marginLeft: '0.1rem'
   },
   field: {
-    marginTop: '2rem',
-    marginBottom: '2rem'
+    marginTop: '3rem',
+    marginBottom: '3rem'
   },
   btn: {
     marginLeft: '2%',
@@ -63,6 +64,10 @@ const theme = createTheme({
 // };
 
 const Form = () => {
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [btnDisabled1, setBtnDisabled1] = useState(true);
+  const [btnDisabled2, setBtnDisabled2] = useState(true);
+  const [btnDisabled3, setBtnDisabled3] = useState(true);
   const [open,setOpen]=useState(false);
   const [message,setmsg]=useState("");
   const [sever,setSever]=useState("info");
@@ -74,9 +79,18 @@ const Form = () => {
   const [dates, setDates] = useState('');
   // const [,feedbackValue, setTextValue] = useState("");
 
-  const onExpenseChange = (e) => setExpense(e.target.value);
-  const onCostChange = (e) => setCost(e.target.value);
-  const onDateChange = (e) => setDates(e.target.value);
+  const onExpenseChange = (e) => {
+    setExpense(e.target.value);
+    setBtnDisabled1(!e.target.value.length)
+  };
+  const onCostChange = (e) =>{ 
+    setCost(e.target.value);
+    setBtnDisabled2(!e.target.value.length);
+  }
+  const onDateChange = (e) => {
+    setDates(e.target.value);
+    setBtnDisabled3(!e.target.value.length);
+  }
   // const handleReset = () => setTextValue('');
 
   async function fetchData() {
@@ -123,10 +137,13 @@ const Form = () => {
     e.preventDefault();
     fetchData();
   };
+  useEffect(() => {
+    setBtnDisabled((btnDisabled2||btnDisabled1||btnDisabled3));
+   }, [btnDisabled1,btnDisabled2,btnDisabled3]);
   return (
-    <form noValidate autoComplete="off">
+    <Box component="form" noValidate autoComplete="off">
       <ThemeProvider theme={theme}>
-        <Container maxWidth="xl">
+        <Container maxWidth="md">
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
@@ -152,13 +169,14 @@ const Form = () => {
                   </Collapse>
                 <FormControl className={classes.formControl}>
                   <InputLabel id="demo-simple-select-label">
-                    TYPE OF Incomes
+                    TYPE OF INCOME
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={expense}
                     onChange={onExpenseChange}
+                    label="TYPE OF INCOME "
                   >
                     <MenuItem value="household">Salary Income(Fixed Income)</MenuItem>
                     <MenuItem value="shopping">Income from buisness</MenuItem>
@@ -170,7 +188,7 @@ const Form = () => {
                 </FormControl>
 
                 <TextField
-                  label=" How can we assist you?"
+                  label=" Enter the Amount"
                   onChange={onCostChange}
                   InputLabelProps={{
                     shrink: true
@@ -179,7 +197,7 @@ const Form = () => {
                   variant="outlined"
                   value={cost}
                   required
-                  fullWidth
+                  sx={{ marginLeft: "0.5em"}}
 
                   // value={password}
                   // onChange={e => setPassword(e.target.value)}
@@ -188,10 +206,11 @@ const Form = () => {
                   id="date"
                   label="Date"
                   type="date"
-                  defaultValue="2017-05-24"
+                  defaultValue="2021-12-8"
                   // value={dat.date}
                   onChange={onDateChange}
-                  sx={{ width: 220 }}
+                  className={classes.field}
+                  sx={{ width: 220,marginLeft: "5em" }}
                   InputLabelProps={{
                     shrink: true
                   }}
@@ -204,6 +223,8 @@ const Form = () => {
                     className="btnsend"
                     endIcon={<ArrowForwardIcon />}
                     onClick={handleSubmit}
+                    disabled={btnDisabled}
+                    color="success"
                   >
                     Send
                   </Button>
@@ -213,7 +234,7 @@ const Form = () => {
           </Card>
         </Container>
       </ThemeProvider>
-    </form>
+    </Box>
   );
 };
 // const handleSubmit=()=>{
