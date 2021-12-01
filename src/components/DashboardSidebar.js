@@ -41,8 +41,8 @@ const items = [
     title: 'Edit Details-expense'
   },
   {
-    href: '/app/editdetails-income',
-    icon: UsersIcon,
+    href: '/app/editdetailsincome',
+    icon: UserIcon,
     title: 'Edit Details-Income'
   },
   {
