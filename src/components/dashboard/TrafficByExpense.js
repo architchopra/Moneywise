@@ -12,14 +12,17 @@ import {
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import PhoneIcon from '@material-ui/icons/Phone';
 import TabletIcon from '@material-ui/icons/Tablet';
+import { object } from 'prop-types';
 
 const TrafficByExpense = (props) => {
-  const theme = useTheme();
-
+  const keys=Object.keys(props.val);
+  const values=Object.values(props.val);
+  let sum=values.reduce((a, b) => a + b, 0);
+  const theme=useTheme();
   const data = {
     datasets: [
       {
-        data: [60.7, 10.3, 24.7,4.3],
+        data: Object.values(props.val),
         backgroundColor: [
           colors.indigo[500],
           colors.red[600],
@@ -31,7 +34,7 @@ const TrafficByExpense = (props) => {
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Shopping', 'household', 'Loan','Miscellaneous']
+    labels: Object.keys(props.val)
   };
 
   const options = {
@@ -58,31 +61,30 @@ const TrafficByExpense = (props) => {
 
   const devices = [
     {
-      title: 'Shopping ',
-      value: 60.7,
+      title: keys[0],
+      value: (props.val[keys[0]]*100/sum).toFixed(2),
       icon: LaptopMacIcon,
       color: colors.indigo[500]
     },
     {
-      title: 'Household',
-      value: 10.3,
+      title: keys[1],
+      value: (props.val[keys[1]]*100/sum).toFixed(2),
       icon: TabletIcon,
       color: colors.red[600]
     },
     {
-      title: 'Loan',
-      value: 24.7,
+      title: keys[2],
+      value: (props.val[keys[2]]*100/sum).toFixed(2),
       icon: PhoneIcon,
       color: colors.orange[600]
     },
     {
-      title: 'Miscellanious',
-      value:4.3,
+      title: keys[3],
+      value: (props.val[keys[3]]*100/sum).toFixed(2),
       icon: TabletIcon,
       color: colors.red[600]
     }
   ];
-
   return (
     <Card {...props} >
       <CardHeader title="Expense Ratio" />

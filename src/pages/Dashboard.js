@@ -43,6 +43,8 @@ const Dashboard = () => {
   let navigate = useNavigate();
   const [alltransac, setAlltransac] = useState([]);
   const [graphdata,setGraphdata]=useState({});
+  const [piedata1,setPiedata1]=useState({});
+  const [piedata2,setPiedata2]=useState({});
   // const [object, setObject] = useState({
   //   admin:{
   //   household: '',
@@ -120,7 +122,7 @@ const Dashboard = () => {
     // }));
       
     });
-    
+    setPiedata1(object);
     setHouses(object.household);
     setShopping(object.shopping);
     setInv(object.investment);
@@ -159,6 +161,7 @@ const Dashboard = () => {
     // }));
       
     });
+    setPiedata2(object2);
     console.log(object2)
     setHouses2(object2.household);
     setShopping2(object2.shopping);
@@ -186,7 +189,9 @@ const Dashboard = () => {
     var expenseval=[],expensedate=[],earningval=[];
     let i=0,j=0;
       while(i<data.expenses.length){
-        var curdt=new Date(data.expenses[i].date);
+        if(i<data.expenses[i].date){
+          var curdt=new Date(data.expenses[i].date);
+        }
         let sum=0,sumearning=0;
         //console.log(dt,i);
         while(curdt>=dt&&i<data.expenses.length){   
@@ -198,6 +203,7 @@ const Dashboard = () => {
           //console.log(curdt,dt,i);
           i++;
         }
+        if(j<earnings.length)
         curdt=new Date(earnings[j].date);
         while(curdt>=dt&&j<earnings.length){   
           curdt=new Date(earnings[j].date);
@@ -336,12 +342,11 @@ const Dashboard = () => {
             <Grid item lg={12} md={12} xl={12} xs={12}>
               <Sales data={graphdata} />
             </Grid>
-
             <Grid item lg={6} md={6} xl={6} xs={12}>
-              <TrafficByExpense sx={{ height: '100%' }} />
+              <TrafficByExpense val={piedata1} sx={{ height: '100%' }} />
             </Grid>
             <Grid item lg={6} md={6} xl={6} xs={12}>
-              <TrafficByExpense sx={{ height: '100%' }} />
+              <TrafficByExpense val={piedata2} sx={{ height: '100%' }} />
             </Grid>
             <Grid item lg={12} md={12} xl={12} xs={12}>
               <LatestOrders orders={alltransac} />
