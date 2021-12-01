@@ -89,7 +89,7 @@ const TrafficByExpense = (props) => {
   ];
   return (
     <Card  >
-      <CardHeader title={name} />
+      <CardHeader title={name}  titleTypographyProps={{variant:'h3',fontWeight:'500' }}/>
       <Divider />
       <CardContent>
         <Box
