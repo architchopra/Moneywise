@@ -78,7 +78,7 @@ const EditFormincome = () => {
   // const [textValue, setTextValue] = useState('');
   const [dates, setDates] = useState('');
   // const [,feedbackValue, setTextValue] = useState("");
-
+                                                                                                                                                                                                                                                                                                                                                                                                                         
   const onExpenseChange = (e) => {
     setExpense(e.target.value);
     setBtnDisabled1(!e.target.value.length)
@@ -147,7 +147,7 @@ const EditFormincome = () => {
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
-                <h3 className="formheading">Contact us | Moneywise</h3>
+                <h3 className="formheading">Add your Incomes</h3>
                 <Collapse in={open}>
                     <Alert severity={sever}
                       action={
@@ -198,7 +198,7 @@ const EditFormincome = () => {
                   value={cost}
                   required
                   sx={{ marginLeft: "0.5em"}}
-
+                  type="number"
                   // value={password}
                   // onChange={e => setPassword(e.target.value)}
                 />
@@ -216,6 +216,7 @@ const EditFormincome = () => {
                   }}
                   required
                   fullWidth
+                 
                 />
                 <div>
                   <Button

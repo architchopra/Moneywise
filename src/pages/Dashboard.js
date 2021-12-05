@@ -305,6 +305,7 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <br></br>
+            <br></br>
           </Box>
           {/* <br></br> */}
           {/* <br></br> */}
@@ -344,10 +345,10 @@ const Dashboard = () => {
               <Sales data={graphdata} />
             </Grid>
             <Grid item lg={6} md={6} xl={6} xs={12}>
-              <TrafficByExpense val={piedata1} sx={{ height: '100%' }} />
+              <TrafficByExpense val={piedata1} sx={{ height: '100%' }} val2="Expense" />
             </Grid>
             <Grid item lg={6} md={6} xl={6} xs={12}>
-              <TrafficByExpense val={piedata2} sx={{ height: '100%' }} />
+              <TrafficByExpense val={piedata2} sx={{ height: '100%' }} val2="Income" />
             </Grid>
             <Grid item lg={12} md={12} xl={12} xs={12}>
               <LatestOrders orders={alltransac} />

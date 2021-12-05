@@ -15,6 +15,8 @@ import TabletIcon from '@material-ui/icons/Tablet';
 import { object } from 'prop-types';
 
 const TrafficByExpense = (props) => {
+  const name=props.val2+ " "+"Ratio";
+ 
   const keys=Object.keys(props.val);
   const values=Object.values(props.val);
   let sum=values.reduce((a, b) => a + b, 0);
@@ -86,8 +88,8 @@ const TrafficByExpense = (props) => {
     }
   ];
   return (
-    <Card {...props} >
-      <CardHeader title="Expense Ratio" />
+    <Card  >
+      <CardHeader title={name}  titleTypographyProps={{variant:'h3',fontWeight:'500' }}/>
       <Divider />
       <CardContent>
         <Box
