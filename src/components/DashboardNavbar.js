@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   AppBar,
   Badge,
   Box,
+  Button,
   Container,
   Hidden,
   IconButton,
   Toolbar,
-  Typography
+  Typography,
+  Menu,
+  MenuItem
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
@@ -19,10 +22,23 @@ import "../index.css"
 import { grey } from '@mui/material/colors';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
+  const navigate = useNavigate();
   const [notifications] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const Logout=()=>{
+    localStorage.removeItem("user");
+    navigate("/login");
+  }
   if(localStorage.getItem("user")!=null){
-   const name=JSON.parse(localStorage.getItem("user")).firstname;
-  
+    const username=JSON.parse(localStorage.getItem("user")).firstname;
   
   return (
     <Container class="centered">
@@ -55,10 +71,32 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
             </div>
             </RouterLink>
             </div>
-            <div style={{color:"#00008b"}}>
-          
-             <h3>Hi {name}</h3>
-           
+            <div>
+              <Button
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="primary"
+                variant="text"
+              >Hi {username}
+              </Button>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={Logout}>Logout</MenuItem>
+              </Menu>
             </div>
       </Toolbar>
     </AppBar>
