@@ -32,14 +32,14 @@ const useStyles = makeStyles(() => ({
 }));
 const Dashboard = () => {
   // let sum=0,sum2=0,sum3=0;
-  const [houses, setHouses] = useState([]);
-  const [shopping, setShopping] = useState([]);
-  const [inv, setInv] = useState([]);
-  const [misc, setMisc] = useState([]);
-  const [houses2, setHouses2] = useState([]);
-  const [shopping2, setShopping2] = useState([]);
-  const [inv2, setInv2] = useState([]);
-  const [misc2, setMisc2] = useState([]);
+  const [houses, setHouses] = useState('0');
+  const [shopping, setShopping] = useState('0');
+  const [inv, setInv] = useState('0');
+  const [misc, setMisc] = useState('0');
+  const [houses2, setHouses2] = useState('0');
+  const [shopping2, setShopping2] = useState('0');
+  const [inv2, setInv2] = useState('0');
+  const [misc2, setMisc2] = useState('0');
   let navigate = useNavigate();
   const [alltransac, setAlltransac] = useState([]);
   const [graphdata,setGraphdata]=useState({});

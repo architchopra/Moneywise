@@ -73,7 +73,7 @@ const Register = () => {
               values
             }) => (
               <form onSubmit={handleSubmit}>
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 3,mt:3 }}>
                   <Typography
                     color="textPrimary"
                     variant="h2"
@@ -159,7 +159,7 @@ const Register = () => {
                     <Link
                       color="primary"
                       component={RouterLink}
-                      to="#"
+                      to="/app/privacy"
                       underline="always"
                       variant="h6"
                     >
