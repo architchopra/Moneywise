@@ -32,14 +32,15 @@ const useStyles = makeStyles(() => ({
 }));
 const Dashboard = () => {
   // let sum=0,sum2=0,sum3=0;
-  const [houses, setHouses] = useState('0');
-  const [shopping, setShopping] = useState('0');
-  const [inv, setInv] = useState('0');
-  const [misc, setMisc] = useState('0');
-  const [houses2, setHouses2] = useState('0');
-  const [shopping2, setShopping2] = useState('0');
-  const [inv2, setInv2] = useState('0');
-  const [misc2, setMisc2] = useState('0');
+  const [houses, setHouses] = useState(0);
+  const [shopping, setShopping] = useState(0);
+  const [inv, setInv] = useState(0);
+  const [misc, setMisc] = useState(0);
+  const [houses2, setHouses2] = useState(0);
+  const [shopping2, setShopping2] = useState(0);
+  const [inv2, setInv2] = useState(0);
+  const [misc2, setMisc2] = useState(0);
+  const [net, setNet] = useState(0);
   let navigate = useNavigate();
   const [alltransac, setAlltransac] = useState([]);
   const [graphdata,setGraphdata]=useState({});
@@ -110,6 +111,7 @@ const Dashboard = () => {
       //console.log(a, sum);
       object[element] = sum;
       a.length = 0;
+      setNet(net-sum);
       //console.log(object);
       // setObject({
       //   ...object, admin: { ...object.admin, [element]: sum }
@@ -149,6 +151,7 @@ const Dashboard = () => {
       console.log(a2, sum2);
       object2[element] = sum2;
       a2.length = 0;
+      setNet(net+sum2)
       //console.log(object);
       // setObject({
       //   ...object, admin: { ...object.admin, [element]: sum }
@@ -167,6 +170,12 @@ const Dashboard = () => {
     setShopping2(object2.buisness);
     setInv2(object2.inc);
     setMisc2(object2.miscinc);
+    // useEffect(() => {
+    //   setNet(houses2+shopping2+inv2+misc2-shopping-inv-misc-houses);
+    // }, [])
+    
+
+    console.log(net);
     // let sum=0;
     //    if(x.type=="household"){
     //   sum=sum+x.cost;
@@ -281,6 +290,26 @@ const Dashboard = () => {
       >
         <CssBaseline />
         <Container maxWidth="xl">
+          <Box 
+          sx={{
+            textAlign:"center",
+            backgroundColor:"#ffffff",
+            mt:"1rem",
+            justifyContent:"center",
+            margin: "auto",
+             width: "50%",
+           
+  
+          }}>
+           CONGRATULATION! YOUR TOTAL SAVINGS ARE 
+           <div style=
+           {{
+             fontWeight:"500",
+             fontSize:'2em',
+             color:"green",
+             textDecoration:"underline"
+           }}>  {houses2+shopping2+inv2+misc2-houses-shopping-misc-inv}</div>
+          </Box>
           <Box className={classes.boxed}>
             <h3 className="formheading2">Types of Expenditures</h3>
             <Grid
