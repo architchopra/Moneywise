@@ -270,7 +270,7 @@ const Dashboard = () => {
   return (
     <>
       <Helmet>
-        <title>Dashboard | MoneyWise</title>
+        <title>MoneyWise</title>
       </Helmet>
       <Box
         sx={{
