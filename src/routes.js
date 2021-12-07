@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound';
 import ProductList from './pages/ProductList';
 import Register from './pages/Register';
 import Settings from './pages/Settings';
-
+import Privacy from './pages/PrivacyPolicy'
 const routes = [
   {
     path: 'app',
@@ -21,7 +21,7 @@ const routes = [
       { path: 'editdetailsincome', element: <EditFormincome/>},
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <ProductList /> },
-      { path: 'settings', element: <Settings /> },
+      { path: 'privacy', element: <Privacy /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

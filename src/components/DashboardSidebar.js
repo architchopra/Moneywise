@@ -56,9 +56,9 @@ const items = [
     title: 'Account'
   },
   {
-    href: '/app/settings',
+    href: '/app/privacy',
     icon: SettingsIcon,
-    title: 'Settings'
+    title: 'Privacy Policy'
   },
   {
     href: '/login',
