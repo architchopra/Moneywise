@@ -147,7 +147,7 @@ const EditFormincome = () => {
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
-                <h3 className="formheading">Add your Incomes</h3>
+                <h3 className="formheading">Add your Income</h3>
                 <Collapse in={open}>
                     <Alert severity={sever}
                       action={
