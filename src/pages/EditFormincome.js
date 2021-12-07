@@ -142,6 +142,7 @@ const EditFormincome = () => {
    }, [btnDisabled1,btnDisabled2,btnDisabled3]);
   return (
     <Box component="form" noValidate autoComplete="off">
+      <div style={{backgroundColor:"#006400"}}>
       <div class="bubbles">
   <div class="bubble"></div>
   <div class="bubble"></div>
@@ -280,6 +281,7 @@ const EditFormincome = () => {
           </Card>
         </Container>
       </ThemeProvider>
+      </div>
       </div>
     </Box>
   );

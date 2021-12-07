@@ -30,7 +30,9 @@ const useStyles = makeStyles(() => ({
   form: {
     width: '100%',
     justifyContent: 'left',
-    alignItems: 'left'
+    alignItems: 'left',
+    backgroundColor:'white'
+
   },
   text: {
     marginLeft: '0.1rem'
@@ -149,6 +151,7 @@ const EditForm = () => {
   }, [btnDisabled1,btnDisabled2,btnDisabled3]);
   return (
     <Box  component="form" noValidate autoComplete="off">
+      <div style={{backgroundColor:"#52307c"}}>
       <div class="bubbles">
   <div class="bubble"></div>
   <div class="bubble"></div>
@@ -196,6 +199,7 @@ const EditForm = () => {
   <div class="bubble"></div>
 
       <ThemeProvider theme={theme}>
+
         <Container maxWidth="md" sx={{position:'absolute', zIndex:1,top: '40%', left: '50%',marginRight: '-50%',transform: 'translate(-50%, -50%)'}}>
           <Card className={classes.root}>
             <Container maxWidth="sm">
@@ -308,6 +312,7 @@ const EditForm = () => {
           </Card>
         </Container>
       </ThemeProvider>
+      </div>
       </div>
     </Box>
   );
