@@ -14,7 +14,7 @@ import api from '../api';
 import Select from '@material-ui/core/Select';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@material-ui/system';
-
+import './bubble.scss';
 const useStyles = makeStyles(() => ({
   root: {
     marginTop: '5rem',
@@ -142,8 +142,53 @@ const EditFormincome = () => {
    }, [btnDisabled1,btnDisabled2,btnDisabled3]);
   return (
     <Box component="form" noValidate autoComplete="off">
+      <div class="bubbles">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
       <ThemeProvider theme={theme}>
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{position:'absolute', zIndex:1,top: '40%', left: '50%',marginRight: '-50%',transform: 'translate(-50%, -50%)'}}>
           <Card className={classes.root}>
             <Container maxWidth="sm">
               <div className={classes.form}>
@@ -235,6 +280,7 @@ const EditFormincome = () => {
           </Card>
         </Container>
       </ThemeProvider>
+      </div>
     </Box>
   );
 };
